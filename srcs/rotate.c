@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 09:50:25 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/11 10:08:12 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:19:29 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,23 @@
 
 void	rotate(int *lst, int len)
 {
-	int	i;
+	int	temp_len;
 	int	temp1;
 	int	temp2;
+	int	second;
 
-	i = 1;
-	if (len < 2)
+	if (!lst[0])
 		return ;
+	temp_len = len;
 	temp1 = lst[0];
-	while (i < len - 1)
+	second = lst[1];
+	while (temp_len > 0)
 	{
-		temp2 = lst[i];
-		lst[i] = temp1;
+		temp2 = lst[temp_len];
+		lst[temp_len] = temp1;
 		temp1 = temp2;
-		i++;
+		temp_len--;
 	}
-	temp2 = lst[i];
-	lst[i] = temp1;
-	lst[0] = temp2;
+	lst[len - 1] = lst[0];
+	lst[0] = second;
 }

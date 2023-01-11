@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/11 12:00:13 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:38:27 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,13 @@ struct s_int_list	*init_list(int argc, char *argv[])
 
 	lst = malloc(sizeof(struct s_int_list));
 	if (!lst)
-	{
-		ft_printf("Error\n");
 		return (NULL);
-	}
 	lst->lst_a = get_list(argc, argv);
 	if (!lst->lst_a)
-	{
-		ft_printf("Error\n");
 		return (free(lst), NULL);
-	}
 	lst->lst_b = malloc((argc + 1) * sizeof(int));
 	if (!lst->lst_b)
 	{
-		ft_printf("Error\n");
 		free(lst->lst_a);
 		return (free(lst), NULL);
 	}
@@ -40,6 +33,18 @@ struct s_int_list	*init_list(int argc, char *argv[])
 	lst->ptr_a = &lst->len_a;
 	lst->len_b = 0;
 	lst->ptr_b = &lst->len_b;
-
+	if (is_duplicate(lst->lst_a))
+	{
+		kill_lst(lst);
+		lst = NULL;
+	}
 	return (lst);
+}
+
+int	kill_lst(struct s_int_list *lst)
+{
+	free(lst->lst_a);
+	free(lst->lst_b);
+	free(lst);
+	return (0);
 }

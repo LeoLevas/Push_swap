@@ -6,29 +6,32 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:30:03 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/11 14:13:50 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:37:15 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	is_sorted(int *lst, int len)
+int	is_stack_sorted(struct s_int_list *lst)
 {
 	int	i;
+	int	*lst_a;
 
+	lst_a = lst->lst_a;
 	i = 1;
-	lst++;
-	while (*lst >= *(lst - 1) && i < len)
+	lst_a++;
+	while (*lst_a >= *(lst_a - 1) && i < lst->len_a)
 	{
-		lst++;
+		lst_a++;
 		i++;
 	}
-	if ((*lst && *lst < *(lst - 1)) || (!*lst && *(lst - 1) < *(lst - 2)))
+	if ((*lst_a && *lst_a < *(lst_a - 1)) || \
+	(!*lst_a && *(lst_a - 1) < *(lst_a - 2)))
 		return (0);
 	return (1);
 }
 
-/* static int	is_duplicate(int *lst)
+int	is_duplicate(int *lst)
 {
 	int	i;
 	int	j;
@@ -47,25 +50,7 @@ int	is_sorted(int *lst, int len)
 	}
 	return (0);
 }
- */
 
-void	print_list(int *lstA, int *lstB, int len_a, int len_b)
-{
-	int	i;
-
-	i = 0;
-	ft_printf("lst A\t\tlst B\n");
-	while (i < len_a || i < len_b)
-	{
-		if (i < len_a)
-			ft_printf("%i", *lstA++);
-		ft_printf("\t\t");
-		if (i < len_b)
-			ft_printf("%i", *lstB++);
-		ft_printf("\n");
-		i++;
-	}
-}
 
 void	set_zero(int *lst, int len)
 {
@@ -119,7 +104,56 @@ int	is_char_only_digits(char *str)
 	return (0);
 }
 
-int	main(int argc, char *argv[])
+void	print_list(struct s_int_list *lst)
+{
+	int	i;
+	int	*lst_a;
+	int	*lst_b;
+	int	len_a;
+	int	len_b;
+
+	lst_a = lst->lst_a;
+	lst_b = lst->lst_b;
+	len_a = lst->len_a;
+	len_b = lst->len_b;
+
+	i = 0;
+	ft_printf("lst A\t\tlst B\n");
+	while (i < len_a || i < lst->len_b)
+	{
+		if (i < len_a)
+			ft_printf("%i", *lst_a++);
+		ft_printf("\t\t");
+		if (i < len_b)
+			ft_printf("%i", *lst_b++);
+		ft_printf("\n");
+		i++;
+	}
+}
+
+int	get_elem_position_in_sort(struct s_int_list *lst, int temp)
+{
+	int	i;
+	int	*lst_a;
+
+	i = 0;
+	lst_a = lst->lst_a;
+	if (temp < *lst_a)
+		return (i);
+	else if (temp > *lst_a && temp > *(lst_a + lst->len_a))
+		return (i);
+	while (i < lst->len_a)
+	{
+		if (*lst_a < temp && *(lst_a + 1) > temp)
+			break ;
+		lst_a++;
+		i++;
+	}
+
+	return (i);
+}
+
+/* int	main(int argc, char *argv[])
 {
 	struct s_int_list	*lst;
 
@@ -129,44 +163,42 @@ int	main(int argc, char *argv[])
 	lst = init_list(argc, argv);
 	if (!lst)
 		return (0);
-	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
-	ft_printf("lstA is sorted : %i\n\n\n", is_sorted(lst->lst_a, *lst->ptr_a));
+	print_list(lst);
+	ft_printf("lstA is sorted : %i\n\n\n", is_sorted(lst));
 	ft_printf("lstA swap\n");
 	ft_sa(lst);
-	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
+	print_list(lst);
 	ft_printf("lstB swap\n");
 	ft_sb(lst);
 
 	ft_printf("push 1 times to B\n");
 	ft_pb(lst);
-	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
+	print_list(lst);
 	ft_printf("push 1 times to B\n");
 	ft_pb(lst);
-	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
+	print_list(lst);
 	ft_printf("push 1 times to B\n");
 	ft_pb(lst);
-	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
+	print_list(lst);
 	ft_printf("push 1 times to B\n");
 	ft_pb(lst);
-	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
+	print_list(lst);
 	ft_printf("push 1 times to B\n");
 	ft_pb(lst);
-	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
+	print_list(lst);
 	ft_printf("push 1 times to A\n");
 	ft_pa(lst);
-	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
+	print_list(lst);
 
 
 	ft_printf("rotate\n");
-	ft_ra(lst);
-	ft_rb(lst);
-	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
+	ft_rr(lst);
+	print_list(lst);
 	ft_printf("reverse rotate\n");
-	ft_rra(lst);
-	ft_rrb(lst);
-	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
+	ft_rrr(lst);
+	print_list(lst);
 
 	free(lst->lst_a);
 	free(lst->lst_b);
 	free(lst);
-}
+} */
