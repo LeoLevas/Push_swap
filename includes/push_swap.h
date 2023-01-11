@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:51:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/11 11:36:13 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:59:48 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,18 @@ void				push(int *lst_1, int *lst_2, int *len_1, int *len_2);
 void				rotate(int *lst, int len);
 void				reverse_rotate(int *lst, int *len);
 void				set_zero(int *lst, int len);
+
+void				ft_sa(struct s_int_list *lst);
+void				ft_sb(struct s_int_list *lst);
+void				ft_ss(struct s_int_list *lst);
+void				ft_pa(struct s_int_list *lst);
+void				ft_pb(struct s_int_list *lst);
+void				ft_ra(struct s_int_list *lst);
+void				ft_rb(struct s_int_list *lst);
+void				ft_rr(struct s_int_list *lst);
+void				ft_rra(struct s_int_list *lst);
+void				ft_rrb(struct s_int_list *lst);
+void				ft_rrr(struct s_int_list *lst);
 
 struct s_int_list	*init_list(int argc, char *argv[]);
 

@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:30:03 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/11 11:59:10 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/11 14:13:50 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,38 +132,38 @@ int	main(int argc, char *argv[])
 	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
 	ft_printf("lstA is sorted : %i\n\n\n", is_sorted(lst->lst_a, *lst->ptr_a));
 	ft_printf("lstA swap\n");
-	swap(lst->lst_a);
+	ft_sa(lst);
 	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
 	ft_printf("lstB swap\n");
-	swap(lst->lst_b);
+	ft_sb(lst);
 
 	ft_printf("push 1 times to B\n");
-	push(lst->lst_b, lst->lst_a, lst->ptr_b, lst->ptr_a);
+	ft_pb(lst);
 	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
 	ft_printf("push 1 times to B\n");
-	push(lst->lst_b, lst->lst_a, lst->ptr_b, lst->ptr_a);
+	ft_pb(lst);
 	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
 	ft_printf("push 1 times to B\n");
-	push(lst->lst_b, lst->lst_a, lst->ptr_b, lst->ptr_a);
+	ft_pb(lst);
 	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
 	ft_printf("push 1 times to B\n");
-	push(lst->lst_b, lst->lst_a, lst->ptr_b, lst->ptr_a);
+	ft_pb(lst);
 	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
 	ft_printf("push 1 times to B\n");
-	push(lst->lst_b, lst->lst_a, lst->ptr_b, lst->ptr_a);
+	ft_pb(lst);
 	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
 	ft_printf("push 1 times to A\n");
-	push(lst->lst_a, lst->lst_b, lst->ptr_a, lst->ptr_b);
+	ft_pa(lst);
 	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
 
 
 	ft_printf("rotate\n");
-	rotate(lst->lst_a, *lst->ptr_a);
-	rotate(lst->lst_b, *lst->ptr_b);
+	ft_ra(lst);
+	ft_rb(lst);
 	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
 	ft_printf("reverse rotate\n");
-	reverse_rotate(lst->lst_a, lst->ptr_a);
-	reverse_rotate(lst->lst_b, lst->ptr_b);
+	ft_rra(lst);
+	ft_rrb(lst);
 	print_list(lst->lst_a, lst->lst_b, *lst->ptr_a, *lst->ptr_b);
 
 	free(lst->lst_a);
