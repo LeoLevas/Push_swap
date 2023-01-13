@@ -6,17 +6,17 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/11 15:38:27 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/12 23:51:14 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-struct s_int_list	*init_list(int argc, char *argv[])
+t_int_list	*init_list(int argc, char *argv[])
 {
-	struct s_int_list	*lst;
+	t_int_list	*lst;
 
-	lst = malloc(sizeof(struct s_int_list));
+	lst = malloc(sizeof(t_int_list));
 	if (!lst)
 		return (NULL);
 	lst->lst_a = get_list(argc, argv);
@@ -41,7 +41,7 @@ struct s_int_list	*init_list(int argc, char *argv[])
 	return (lst);
 }
 
-int	kill_lst(struct s_int_list *lst)
+int	kill_lst(t_int_list *lst)
 {
 	free(lst->lst_a);
 	free(lst->lst_b);

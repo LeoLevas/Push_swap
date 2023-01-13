@@ -6,13 +6,13 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:10:31 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/11 16:39:51 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/12 23:51:14 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	less_three_sort(struct s_int_list *lst)
+void	less_three_sort(t_int_list *lst)
 {
 	if (lst->len_a == 1)
 		return ;
@@ -38,7 +38,7 @@ void	less_three_sort(struct s_int_list *lst)
 	return ;
 }
 
-void	less_five_sort(struct s_int_list *lst)
+void	less_five_sort(t_int_list *lst)
 {
 	int	pos;
 

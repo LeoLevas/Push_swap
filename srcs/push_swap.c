@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:50:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/11 16:10:28 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/12 23:51:14 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char *argv[])
 {
-	struct s_int_list	*lst;
+	t_int_list	*lst;
 
 	if (argc == 1)
 		return (0);

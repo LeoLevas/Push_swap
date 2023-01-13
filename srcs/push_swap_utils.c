@@ -6,13 +6,13 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:30:03 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/11 16:37:15 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/12 23:51:14 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	is_stack_sorted(struct s_int_list *lst)
+int	is_stack_sorted(t_int_list *lst)
 {
 	int	i;
 	int	*lst_a;
@@ -104,7 +104,7 @@ int	is_char_only_digits(char *str)
 	return (0);
 }
 
-void	print_list(struct s_int_list *lst)
+void	print_list(t_int_list *lst)
 {
 	int	i;
 	int	*lst_a;
@@ -131,7 +131,7 @@ void	print_list(struct s_int_list *lst)
 	}
 }
 
-int	get_elem_position_in_sort(struct s_int_list *lst, int temp)
+int	get_elem_position_in_sort(t_int_list *lst, int temp)
 {
 	int	i;
 	int	*lst_a;
@@ -155,7 +155,7 @@ int	get_elem_position_in_sort(struct s_int_list *lst, int temp)
 
 /* int	main(int argc, char *argv[])
 {
-	struct s_int_list	*lst;
+	t_int_list	*lst;
 
 	if (argc == 1)
 		return (0);
