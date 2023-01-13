@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:30:03 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/12 23:51:14 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/13 13:03:26 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,50 @@ int	get_elem_position_in_sort(t_int_list *lst, int temp)
 	}
 
 	return (i);
+}
+
+int	get_highest_elem_pos(int *lst, int len)
+{
+	int	i;
+	int	temp;
+	int	highest;
+	
+	i = 0;
+	temp = 0;
+	highest = *lst;
+	while (i < len)
+	{
+		if (*lst > highest)
+		{
+			highest = *lst;
+			temp = i;
+		}
+		lst++;
+		i++;
+	}
+	return (temp);
+}
+
+int	get_lowest_elem_pos(int *lst, int len)
+{
+	int	i;
+	int	temp;
+	int	lowest;
+	
+	i = 0;
+	temp = 0;
+	lowest = *lst;
+	while (i < len)
+	{
+		if (*lst > lowest)
+		{
+			lowest = *lst;
+			temp = i;
+		}
+		lst++;
+		i++;
+	}
+	return (temp);
 }
 
 /* int	main(int argc, char *argv[])
