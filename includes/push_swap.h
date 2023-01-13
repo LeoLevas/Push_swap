@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:51:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/13 13:03:15 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/13 13:56:19 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int					is_duplicate(int *lst);
 int					get_elem_position_in_sort(t_int_list *lst, int temp);
 int					get_lowest_elem_pos(int *lst, int len);
 int					get_highest_elem_pos(int *lst, int len);
+int					get_lowest_elem(int *lst, int len);
+int					get_highest_elem(int *lst, int len);
 
 void				print_list(t_int_list *lst);
 void				swap(int *lst);

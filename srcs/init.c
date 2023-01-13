@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/13 12:53:36 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:09:30 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,31 @@ t_int_list	*init_list(int argc, char *argv[])
 	}
 	return (lst);
 }
+
+int	is_in_chunk(t_int_list *lst, int nbr_chunk, int nbr)
+{
+	int	min;
+	int	max;
+	int	chunk_length;
+	int	index_chunk;
+	int	start;
+	
+	max = get_highest_elem(lst->lst_a, lst->len_a);
+	min = get_lowest_elem(lst->lst_a, lst->len_a);
+	
+	chunk_length = (lst->len_a + lst->len_b) / 20;
+	index_chunk = 0;
+	
+	while (index_chunk < nbr_chunk && min < max)
+	{
+		index_chunk++;
+		min += chunk_length;
+	}
+	if (nbr >= start && nbr < (start + chunk_length))
+		return (1);
+	return (0);
+}
+
 
 int	kill_lst(t_int_list *lst)
 {

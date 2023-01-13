@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:30:03 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/13 13:03:26 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/13 13:55:54 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,7 +186,7 @@ int	get_lowest_elem_pos(int *lst, int len)
 	lowest = *lst;
 	while (i < len)
 	{
-		if (*lst > lowest)
+		if (*lst < lowest)
 		{
 			lowest = *lst;
 			temp = i;
@@ -197,52 +197,36 @@ int	get_lowest_elem_pos(int *lst, int len)
 	return (temp);
 }
 
-/* int	main(int argc, char *argv[])
+int	get_lowest_elem(int *lst, int len)
 {
-	t_int_list	*lst;
+	int	i;
+	int	temp;
+	
+	i = 0;
+	temp = *lst;
+	while (i < len)
+	{
+		if (*lst < temp)
+			temp = *lst;
+		lst++;
+		i++;
+	}
+	return (temp);
+}
 
-	if (argc == 1)
-		return (0);
-
-	lst = init_list(argc, argv);
-	if (!lst)
-		return (0);
-	print_list(lst);
-	ft_printf("lstA is sorted : %i\n\n\n", is_sorted(lst));
-	ft_printf("lstA swap\n");
-	ft_sa(lst);
-	print_list(lst);
-	ft_printf("lstB swap\n");
-	ft_sb(lst);
-
-	ft_printf("push 1 times to B\n");
-	ft_pb(lst);
-	print_list(lst);
-	ft_printf("push 1 times to B\n");
-	ft_pb(lst);
-	print_list(lst);
-	ft_printf("push 1 times to B\n");
-	ft_pb(lst);
-	print_list(lst);
-	ft_printf("push 1 times to B\n");
-	ft_pb(lst);
-	print_list(lst);
-	ft_printf("push 1 times to B\n");
-	ft_pb(lst);
-	print_list(lst);
-	ft_printf("push 1 times to A\n");
-	ft_pa(lst);
-	print_list(lst);
-
-
-	ft_printf("rotate\n");
-	ft_rr(lst);
-	print_list(lst);
-	ft_printf("reverse rotate\n");
-	ft_rrr(lst);
-	print_list(lst);
-
-	free(lst->lst_a);
-	free(lst->lst_b);
-	free(lst);
-} */
+int	get_highest_elem(int *lst, int len)
+{
+	int	i;
+	int	temp;
+	
+	i = 0;
+	temp = *lst;
+	while (i < len)
+	{
+		if (*lst > temp)
+			temp = *lst;
+		lst++;
+		i++;
+	}
+	return (temp);
+}

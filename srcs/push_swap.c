@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:50:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/13 13:04:03 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/13 13:56:46 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int argc, char *argv[])
 	print_list(lst);
 	
 	ft_printf("lowest : %i || highest : %i\n", get_lowest_elem_pos(lst->lst_a, lst->len_a), get_highest_elem_pos(lst->lst_a, lst->len_a));
+	ft_printf("lowest : %i || highest : %i\n", get_lowest_elem(lst->lst_a, lst->len_a), get_highest_elem(lst->lst_a, lst->len_a));
 	
 	return (kill_lst(lst));
 }
