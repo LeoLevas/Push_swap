@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:30:03 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/13 13:55:54 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/14 10:51:48 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,29 +58,31 @@ void	set_zero(int *lst, int len)
 
 	i = 0;
 
-	while (i <= len)
+	while (i < len)
 	{
 		*lst++ = 0;
 		i++;
 	}
 }
 
-int	*get_list(int argc, char *argv[])
+int	*get_list(t_int_list *lst, int argc, char *argv[])
 {
-	int	*lst;
+	int	*lst_a;
 	int	i;
 
-	lst = malloc((argc + 1) * sizeof(int));
-	if (!lst)
+	lst_a = malloc((argc) * sizeof(int));
+	if (!lst_a)
 		return (NULL);
-	set_zero(lst, argc);
+	set_zero(lst_a, argc - 1);
 	i = 0;
 	while (i++ < argc && argv[i] && is_char_only_digits(argv[i]))
-		*lst++ = ft_atoi(argv[i]);
-	lst -= (i - 1);
+		*lst_a++ = ft_atoi(argv[i]);
+	lst_a -= (i - 1);
+	lst->len_a = i - 1;
+	lst->max_len = i - 1;
 	if (!is_char_only_digits(argv[i]))
-		return (free(lst), NULL);
-	return (lst);
+		return (free(lst_a), NULL);
+	return (lst_a);
 }
 
 int	is_char_only_digits(char *str)
@@ -158,7 +160,7 @@ int	get_highest_elem_pos(int *lst, int len)
 	int	i;
 	int	temp;
 	int	highest;
-	
+
 	i = 0;
 	temp = 0;
 	highest = *lst;
@@ -175,12 +177,29 @@ int	get_highest_elem_pos(int *lst, int len)
 	return (temp);
 }
 
+int	get_highest_elem(int *lst, int len)
+{
+	int	i;
+	int	temp;
+
+	i = 0;
+	temp = *lst;
+	while (i < len)
+	{
+		if (*lst > temp)
+			temp = *lst;
+		lst++;
+		i++;
+	}
+	return (temp);
+}
+
 int	get_lowest_elem_pos(int *lst, int len)
 {
 	int	i;
 	int	temp;
 	int	lowest;
-	
+
 	i = 0;
 	temp = 0;
 	lowest = *lst;
@@ -201,7 +220,7 @@ int	get_lowest_elem(int *lst, int len)
 {
 	int	i;
 	int	temp;
-	
+
 	i = 0;
 	temp = *lst;
 	while (i < len)
@@ -214,19 +233,3 @@ int	get_lowest_elem(int *lst, int len)
 	return (temp);
 }
 
-int	get_highest_elem(int *lst, int len)
-{
-	int	i;
-	int	temp;
-	
-	i = 0;
-	temp = *lst;
-	while (i < len)
-	{
-		if (*lst > temp)
-			temp = *lst;
-		lst++;
-		i++;
-	}
-	return (temp);
-}

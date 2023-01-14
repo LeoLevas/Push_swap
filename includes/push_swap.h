@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:51:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/13 13:56:19 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/14 10:46:50 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,31 @@ typedef struct s_int_list
 	int				len_b;
 	int				*ptr_a;
 	int				*ptr_b;
+	int				max_len;
 }	t_int_list;
 
-int					is_stack_sorted(t_int_list *lst);
-int					*get_list(int argc, char *argv[]);
-int					is_char_only_digits(char *str);
-int					kill_lst(t_int_list *lst);
-int					is_duplicate(int *lst);
-int					get_elem_position_in_sort(t_int_list *lst, int temp);
-int					get_lowest_elem_pos(int *lst, int len);
-int					get_highest_elem_pos(int *lst, int len);
-int					get_lowest_elem(int *lst, int len);
-int					get_highest_elem(int *lst, int len);
+/* push_swap_utils.c */
 
+int					is_stack_sorted(t_int_list *lst);
+int					is_duplicate(int *lst);
+void				set_zero(int *lst, int len);
+int					*get_list(t_int_list *lst, int argc, char *argv[]);
+int					is_char_only_digits(char *str);
 void				print_list(t_int_list *lst);
+int					get_elem_position_in_sort(t_int_list *lst, int temp);
+int					get_highest_elem_pos(int *lst, int len);
+int					get_highest_elem(int *lst, int len);
+int					get_lowest_elem_pos(int *lst, int len);
+int					get_lowest_elem(int *lst, int len);
+
+/* {func name}.c */
+
 void				swap(int *lst);
 void				push(int *lst_1, int *lst_2, int *len_1, int *len_2);
 void				rotate(int *lst, int len);
 void				reverse_rotate(int *lst, int len);
-void				set_zero(int *lst, int len);
+
+/* move.c */
 
 void				ft_sa(t_int_list *lst);
 void				ft_sb(t_int_list *lst);
@@ -59,10 +65,23 @@ void				ft_rra(t_int_list *lst);
 void				ft_rrb(t_int_list *lst);
 void				ft_rrr(t_int_list *lst);
 
+/* sort.c */
+
 void				less_three_sort(t_int_list *lst);
 void				less_five_sort(t_int_list *lst);
+void				big_sort(t_int_list *lst);
 
+/* init.c */
 
 t_int_list			*init_list(int argc, char *argv[]);
+int					kill_lst(t_int_list *lst);
+
+/* chunk.c */
+
+int					is_in_chunk(t_int_list *lst, int nbr_chunk, int nbr);
+int					get_int_pos_in_list(t_int_list *lst, int nbr);
+int					get_hold_best_rotate(t_int_list *lst, int nbr);
+void				rotate_holds(t_int_list *lst, int hold_1, int hold_2);
+void				rotate_one_hold(t_int_list *lst, int hold);
 
 #endif
