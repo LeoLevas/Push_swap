@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:50:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/14 10:44:35 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:48:56 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	main(int argc, char *argv[])
 	if (!lst)
 		return (ft_printf("Error\n"));
 
-	ft_printf("-----BEFORE SORT-----\n");
-
+/* 	ft_printf("-----BEFORE SORT-----\n");
+ */
 /* 	print_list(lst);
  */
 	if (is_stack_sorted(lst))
@@ -39,7 +39,8 @@ int	main(int argc, char *argv[])
 		big_sort(lst);
 	ft_printf("-----AFTER  SORT-----\n");
 
- 	print_list(lst);
+ 	
+ 	print_list(lst, 0);
 	
 /* 	ft_printf("lowest : %i || highest : %i\n", get_lowest_elem_pos(lst->lst_a, lst->len_a), get_highest_elem_pos(lst->lst_a, lst->len_a));
 	ft_printf("lowest : %i || highest : %i\n", get_lowest_elem(lst->lst_a, lst->len_a), get_highest_elem(lst->lst_a, lst->len_a));

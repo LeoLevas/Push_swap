@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:51:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/14 10:46:50 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:58:57 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ typedef struct s_int_list
 /* push_swap_utils.c */
 
 int					is_stack_sorted(t_int_list *lst);
-int					is_duplicate(int *lst);
+int					is_duplicate(int *lst, int len);
 void				set_zero(int *lst, int len);
 int					*get_list(t_int_list *lst, int argc, char *argv[]);
 int					is_char_only_digits(char *str);
-void				print_list(t_int_list *lst);
+void				print_list(t_int_list *lst, int all);
 int					get_elem_position_in_sort(t_int_list *lst, int temp);
 int					get_highest_elem_pos(int *lst, int len);
 int					get_highest_elem(int *lst, int len);
@@ -70,6 +70,7 @@ void				ft_rrr(t_int_list *lst);
 void				less_three_sort(t_int_list *lst);
 void				less_five_sort(t_int_list *lst);
 void				big_sort(t_int_list *lst);
+void				check_push_b(t_int_list *lst);
 
 /* init.c */
 
@@ -83,5 +84,14 @@ int					get_int_pos_in_list(t_int_list *lst, int nbr);
 int					get_hold_best_rotate(t_int_list *lst, int nbr);
 void				rotate_holds(t_int_list *lst, int hold_1, int hold_2);
 void				rotate_one_hold(t_int_list *lst, int hold);
+
+/* chunk_b.c */
+
+int					get_best_pos_in_b(t_int_list *lst);
+int					get_int_pos_in_list_b(t_int_list *lst, int nbr);
+int					get_int_best_rotate_b(t_int_list *lst, int nbr);
+void				rotate_one_hold_b(t_int_list *lst, int hold);
+void				rotate_best_pos(t_int_list *lst);
+void				get_highest_to_top(t_int_list *lst);
 
 #endif

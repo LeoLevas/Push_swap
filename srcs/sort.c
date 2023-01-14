@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:10:31 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/14 10:41:42 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:48:46 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,12 @@ void	big_sort(t_int_list *lst)
 	int	is_1_holded = 0;
 	int	is_2_holded = 0;
 
-	i = 0;
 	index_chunk = 1;
 	chunk_length = lst->max_len / (lst->max_len / 20);
 	while (!is_stack_sorted(lst) && index_chunk < lst->max_len / 20)
 	{
 		i = 0;
-		while (i < lst->max_len && i < (chunk_length * index_chunk))
+		while (i < lst->len_a && i < (chunk_length * index_chunk) && lst->len_a)
 		{
 			if (is_in_chunk(lst, index_chunk, *(lst->lst_a + i)))
 			{
@@ -101,14 +100,32 @@ void	big_sort(t_int_list *lst)
 			}
 			i++;
 			if (is_1_holded && is_2_holded)
-				return (rotate_holds(lst, hold_1, hold_2));
+				rotate_holds(lst, hold_1, hold_2);
 			else if (is_1_holded && !is_2_holded)
-				return (rotate_one_hold(lst, hold_1));
+				rotate_one_hold(lst, hold_1);
 			else if (is_2_holded && !is_1_holded)
-				return (rotate_one_hold(lst, hold_2));
+				rotate_one_hold(lst, hold_2);
+			if (is_1_holded || is_2_holded)
+			{
+				check_push_b(lst);
+				i = 0;
+			}
 			is_1_holded = 0;
 			is_2_holded = 0;
 		}
 		index_chunk++;
 	}
+	while (lst->len_a != lst->max_len)
+	{
+		get_highest_to_top(lst);
+		ft_pa(lst);
+	}
+}
+
+void	check_push_b(t_int_list *lst)
+{
+	if (lst->len_b < 2)
+		return (ft_pb(lst));
+ 	rotate_best_pos(lst);
+	return (ft_pb(lst));
 }

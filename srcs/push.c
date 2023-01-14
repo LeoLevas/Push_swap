@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 09:50:53 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/11 15:49:33 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/14 15:03:57 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	push(int *lst_1, int *lst_2, int *len_1, int *len_2)
 	int	i;
 	int	temp;
 
-	if (!*lst_2)
+	if (!len_2)
 		return ;
 	i = 0;
 	temp = *lst_2 ;

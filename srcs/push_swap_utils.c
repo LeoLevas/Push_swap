@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:30:03 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/14 10:51:48 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:59:12 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ int	is_stack_sorted(t_int_list *lst)
 {
 	int	i;
 	int	*lst_a;
+
+	if (lst->len_a == 0)
+		return (1);
 
 	lst_a = lst->lst_a;
 	i = 1;
@@ -31,13 +34,13 @@ int	is_stack_sorted(t_int_list *lst)
 	return (1);
 }
 
-int	is_duplicate(int *lst)
+int	is_duplicate(int *lst, int len)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (lst[i])
+	while (lst[i] && i < len)
 	{
 		j = 0;
 		while (j < i)
@@ -106,7 +109,7 @@ int	is_char_only_digits(char *str)
 	return (0);
 }
 
-void	print_list(t_int_list *lst)
+void	print_list(t_int_list *lst, int all)
 {
 	int	i;
 	int	*lst_a;
@@ -120,16 +123,30 @@ void	print_list(t_int_list *lst)
 	len_b = lst->len_b;
 
 	i = 0;
-	ft_printf("lst A\t\tlst B\n");
-	while (i < len_a || i < lst->len_b)
+	if (all == 0)
 	{
-		if (i < len_a)
-			ft_printf("%i", *lst_a++);
-		ft_printf("\t\t");
-		if (i < len_b)
-			ft_printf("%i", *lst_b++);
-		ft_printf("\n");
-		i++;
+		ft_printf("lst A\t\tlst B\n");
+		while (i < len_a || i < lst->len_b)
+		{
+			if (i < len_a)
+				ft_printf("%i", *lst_a++);
+			ft_printf("\t\t");
+			if (i < len_b)
+				ft_printf("%i", *lst_b++);
+			ft_printf("\n");
+			i++;
+		}
+	}
+	if (all == 1)
+	{
+		ft_printf("lst B\n");
+		while (i < lst->len_b)
+		{
+			if (i < len_b)
+				ft_printf("%i", *lst_b++);
+			ft_printf("\n");
+			i++;
+		}	
 	}
 }
 

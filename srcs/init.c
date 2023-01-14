@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/14 10:49:37 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:58:46 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_int_list	*init_list(int argc, char *argv[])
 	lst->ptr_a = &lst->len_a;
 	lst->len_b = 0;
 	lst->ptr_b = &lst->len_b;
-	if (is_duplicate(lst->lst_a))
+	if (is_duplicate(lst->lst_a, lst->len_a))
 	{
 		kill_lst(lst);
 		lst = NULL;
