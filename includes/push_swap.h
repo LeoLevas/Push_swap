@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:51:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/14 18:58:57 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/15 11:06:25 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,17 @@ typedef struct s_int_list
 	int				*ptr_b;
 	int				max_len;
 }	t_int_list;
+
+typedef struct s_chunk
+{
+	int	min;
+	int	max;
+	int	index;
+	int	hold_1;
+	int	hold_2;
+	int	length;
+	int	nbr_chunk;
+}	t_chunk;
 
 /* push_swap_utils.c */
 
@@ -79,11 +90,14 @@ int					kill_lst(t_int_list *lst);
 
 /* chunk.c */
 
-int					is_in_chunk(t_int_list *lst, int nbr_chunk, int nbr);
+int					is_in_chunk(t_int_list *lst, t_chunk *chunk, int nbr);
 int					get_int_pos_in_list(t_int_list *lst, int nbr);
 int					get_hold_best_rotate(t_int_list *lst, int nbr);
 void				rotate_holds(t_int_list *lst, int hold_1, int hold_2);
 void				rotate_one_hold(t_int_list *lst, int hold);
+int					need_search_chunk(t_int_list *lst, t_chunk *chunk);
+int					nbr_chunk(t_int_list *lst);
+t_chunk				*init_chunk(t_int_list *lst);
 
 /* chunk_b.c */
 

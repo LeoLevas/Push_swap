@@ -6,32 +6,56 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 17:24:28 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/14 14:30:44 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/15 11:08:38 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	is_in_chunk(t_int_list *lst, int nbr_chunk, int nbr)
+t_chunk	*init_chunk(t_int_list *lst)
 {
-	int	min;
-	int	max;
-	int	chunk_length;
-	int	index_chunk;
+	t_chunk	*chunk;
 
-	max = get_highest_elem(lst->lst_a, lst->len_a);
-	min = get_lowest_elem(lst->lst_a, lst->len_a);
+	chunk = malloc(sizeof(t_chunk));
+	if (!chunk)
+		return (NULL);
 
-	chunk_length = lst->max_len / (lst->max_len / 20);
-	index_chunk = 1;
+	chunk->max = get_highest_elem(lst->lst_a, lst->len_a);
+	chunk->min = get_lowest_elem(lst->lst_a, lst->len_a);
+	chunk->length = 20;
+	chunk->nbr_chunk = lst->max_len / 20;
+	chunk->index = 1;
 
-	while (index_chunk < nbr_chunk && min < max)
-	{
-		index_chunk++;
-		min += chunk_length;
-	}
-	if (nbr >= min && nbr < (min + chunk_length))
+	return (chunk);
+}
+
+int	is_in_chunk(t_int_list *lst, t_chunk *chunk, int nbr)
+{
+	nbr = *lst->lst_a;
+	if (nbr >= chunk->min && nbr < (chunk->min + chunk->length))
 		return (1);
+	return (0);
+}
+
+int	nbr_chunk(t_int_list *lst)
+{
+	return (lst->max_len / 20);
+}
+
+int	need_search_chunk(t_int_list *lst, t_chunk *chunk)
+{
+	int	i;
+	int	nbr;
+
+	i = 0;
+
+	while (i < lst->len_a)
+	{
+		nbr = *(lst->lst_a + i);
+		if (nbr >= chunk->min && nbr < (chunk->min + chunk->length))
+			return (1);
+		i++;
+	}
 	return (0);
 }
 
