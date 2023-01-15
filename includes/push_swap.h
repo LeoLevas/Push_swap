@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:51:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/15 11:06:25 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/15 13:46:48 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int					get_highest_elem_pos(int *lst, int len);
 int					get_highest_elem(int *lst, int len);
 int					get_lowest_elem_pos(int *lst, int len);
 int					get_lowest_elem(int *lst, int len);
+int					get_range(int min, int max);
 
 /* {func name}.c */
 
@@ -90,7 +91,7 @@ int					kill_lst(t_int_list *lst);
 
 /* chunk.c */
 
-int					is_in_chunk(t_int_list *lst, t_chunk *chunk, int nbr);
+int					is_in_chunk(t_chunk *chunk, int nbr);
 int					get_int_pos_in_list(t_int_list *lst, int nbr);
 int					get_hold_best_rotate(t_int_list *lst, int nbr);
 void				rotate_holds(t_int_list *lst, int hold_1, int hold_2);

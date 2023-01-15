@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:30:03 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/14 18:59:12 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:26:05 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,17 @@ int	is_stack_sorted(t_int_list *lst)
 		return (1);
 
 	lst_a = lst->lst_a;
+	ft_printf("0 : %i\n", *lst_a);
 	i = 1;
 	lst_a++;
-	while (*lst_a >= *(lst_a - 1) && i < lst->len_a)
+	ft_printf("%i : %i\n", i, *lst_a);
+	while (*lst_a >= *(lst_a - 1) && i < lst->len_a - 1)
 	{
 		lst_a++;
 		i++;
+		ft_printf("%i : %i\n", i, *lst_a);
 	}
-	if ((*lst_a && *lst_a < *(lst_a - 1)) || \
-	(!*lst_a && *(lst_a - 1) < *(lst_a - 2)))
+	if ((*lst_a < *(lst_a - 1)) || *(lst_a - 1) < *(lst_a - 2))
 		return (0);
 	return (1);
 }
@@ -250,3 +252,19 @@ int	get_lowest_elem(int *lst, int len)
 	return (temp);
 }
 
+int	get_range(int min, int max)
+{
+	int	temp;
+
+	if (min > max)
+	{
+		temp = max;
+		max = min;
+		min = temp;
+	}
+	if (min >= 0 && max > 0)
+		return (max - min);
+	if (min <= 0)
+		return (max + (min * -1));
+	return (0);
+}

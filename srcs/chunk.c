@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 17:24:28 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/15 11:08:38 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:12:56 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,14 @@ t_chunk	*init_chunk(t_int_list *lst)
 	chunk->max = get_highest_elem(lst->lst_a, lst->len_a);
 	chunk->min = get_lowest_elem(lst->lst_a, lst->len_a);
 	chunk->length = 20;
-	chunk->nbr_chunk = lst->max_len / 20;
+	chunk->nbr_chunk = (get_range(chunk->min, chunk->max) / 20) + 1;
 	chunk->index = 1;
 
 	return (chunk);
 }
 
-int	is_in_chunk(t_int_list *lst, t_chunk *chunk, int nbr)
+int	is_in_chunk(t_chunk *chunk, int nbr)
 {
-	nbr = *lst->lst_a;
 	if (nbr >= chunk->min && nbr < (chunk->min + chunk->length))
 		return (1);
 	return (0);

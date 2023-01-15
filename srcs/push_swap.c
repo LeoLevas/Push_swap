@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:50:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/14 18:48:56 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:26:36 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int argc, char *argv[])
 	if (is_stack_sorted(lst))
 		return (kill_lst(lst));
 
+
 	if (lst->len_a <= 3 && !is_stack_sorted(lst))
 		less_three_sort(lst);
 
@@ -40,11 +41,14 @@ int	main(int argc, char *argv[])
 	ft_printf("-----AFTER  SORT-----\n");
 
  	
- 	print_list(lst, 0);
+  	print_list(lst, 0);
 	
-/* 	ft_printf("lowest : %i || highest : %i\n", get_lowest_elem_pos(lst->lst_a, lst->len_a), get_highest_elem_pos(lst->lst_a, lst->len_a));
-	ft_printf("lowest : %i || highest : %i\n", get_lowest_elem(lst->lst_a, lst->len_a), get_highest_elem(lst->lst_a, lst->len_a));
- */	
+	ft_printf("highest : %i\n", get_highest_elem(lst->lst_a, lst->len_a));
+	ft_printf("highest pos : %i\n", get_highest_elem_pos(lst->lst_a, lst->len_a));
+	if (is_stack_sorted(lst))
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 	return (kill_lst(lst));
 }
 
