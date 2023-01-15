@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 14:24:23 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/14 18:45:31 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/15 09:47:45 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,32 @@ void	rotate_best_pos(t_int_list *lst)
 {
 	int	pos;
 	int	biggest_in_b;
+	int	smallest_in_b;
 
 	biggest_in_b = get_highest_elem(lst->lst_b, lst->len_b);
+	smallest_in_b = get_lowest_elem(lst->lst_b, lst->len_b);
+	if (*lst->lst_a < smallest_in_b)
+	{
+		pos = get_lowest_elem_pos(lst->lst_b, lst->len_b);
+		if (!pos)
+			return ;
+		if (pos < (lst->len_b / 2))
+		{
+			while (pos != 0)
+			{
+				ft_rb(lst);
+				pos = get_lowest_elem_pos(lst->lst_b, lst->len_b);
+			}
+		}
+		else
+		{
+			while (pos != 0)
+			{
+				ft_rrb(lst);
+				pos = get_lowest_elem_pos(lst->lst_b, lst->len_b);
+			}
+		}
+	}
 	if (*lst->lst_a < biggest_in_b)
 	{
 		pos = get_best_pos_in_b(lst);
@@ -96,6 +120,8 @@ void	rotate_best_pos(t_int_list *lst)
 		{
 			while (pos != 0)
 			{
+				if (*lst->lst_a == 13)
+					print_list(lst, 1);
 				ft_rrb(lst);
 				pos = get_best_pos_in_b(lst);
 			}

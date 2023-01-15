@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:10:31 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/14 18:48:46 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/15 09:48:42 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,6 @@ void	check_push_b(t_int_list *lst)
 {
 	if (lst->len_b < 2)
 		return (ft_pb(lst));
- 	rotate_best_pos(lst);
+	rotate_best_pos(lst);
 	return (ft_pb(lst));
 }
