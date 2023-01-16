@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/16 12:04:51 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/16 13:55:52 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,12 @@ int	*get_list(t_int_list *lst, int argc, char *argv[])
 	set_zero(lst_a, argc - 1);
 	i = 0;
 	while (i++ < argc && argv[i] && is_char_only_digits(argv[i]))
+	{
 		*lst_a++ = ft_atoi(argv[i]);
+		if (ft_atoi_long_long(argv[i]) > 2147483647 \
+		|| ft_atoi_long_long(argv[i]) < -2147483648)
+			return (free(lst_a - i), NULL);
+	}
 	lst_a -= (i - 1);
 	lst->len_a = i - 1;
 	lst->max_len = i - 1;

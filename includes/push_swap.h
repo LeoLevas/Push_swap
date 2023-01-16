@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:51:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/16 12:28:23 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/16 13:53:22 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,11 @@ void				check_push_b(t_int_list *lst);
 t_int_list			*init_list(int argc, char *argv[]);
 int					*get_list(t_int_list *lst, int argc, char *argv[]);
 int					kill_lst(t_int_list *lst);
+
+/* check_int.c */
+
+long long			ft_atoi_long_long(const char *str);
+int					ft_isspace(char c);
 
 /* chunk.c */
 
