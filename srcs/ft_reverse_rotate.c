@@ -1,42 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   move_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 09:50:53 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/16 12:05:51 by llevasse         ###   ########.fr       */
+/*   Created: 2023/01/16 11:39:12 by llevasse          #+#    #+#             */
+/*   Updated: 2023/01/16 11:42:18 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	push(int *lst_1, int *lst_2, int *len_1, int *len_2)
+void	ft_rra(t_int_list *lst)
 {
-	int	i;
-	int	temp;
+	reverse_rotate(lst->lst_a, lst->len_a);
+	ft_printf("rra\n");
+}
 
-	i = 0;
-	temp = *lst_2 ;
-	while (i++ < *len_2 && lst_2++)
-		*(lst_2 - 1) = *lst_2;
-	*(lst_2 - 1) = 0;
-	if (*len_1 == 0)
-	{
-		*lst_1 = temp;
-		*len_1 += 1;
-		return ;
-	}
-	i = 0;
-	while (i++ < *len_1)
-		lst_1++;
-	lst_1++;
-	while (i-- > 0)
-	{
-		*lst_1 = *(lst_1 - 1);
-		lst_1--;
-	}
-	*lst_1 = temp;
-	*len_1 += 1;
+void	ft_rrb(t_int_list *lst)
+{
+	reverse_rotate(lst->lst_b, lst->len_b);
+	ft_printf("rrb\n");
+}
+
+void	ft_rrr(t_int_list *lst)
+{
+	reverse_rotate(lst->lst_a, lst->len_a);
+	reverse_rotate(lst->lst_b, lst->len_b);
+	ft_printf("rrr\n");
 }

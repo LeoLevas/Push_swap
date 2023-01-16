@@ -1,42 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 09:50:53 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/16 12:05:51 by llevasse         ###   ########.fr       */
+/*   Created: 2023/01/11 13:46:02 by llevasse          #+#    #+#             */
+/*   Updated: 2023/01/16 12:06:00 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	push(int *lst_1, int *lst_2, int *len_1, int *len_2)
+void	ft_pa(t_int_list *lst)
 {
-	int	i;
-	int	temp;
-
-	i = 0;
-	temp = *lst_2 ;
-	while (i++ < *len_2 && lst_2++)
-		*(lst_2 - 1) = *lst_2;
-	*(lst_2 - 1) = 0;
-	if (*len_1 == 0)
-	{
-		*lst_1 = temp;
-		*len_1 += 1;
+	if (!lst->len_b)
 		return ;
-	}
-	i = 0;
-	while (i++ < *len_1)
-		lst_1++;
-	lst_1++;
-	while (i-- > 0)
-	{
-		*lst_1 = *(lst_1 - 1);
-		lst_1--;
-	}
-	*lst_1 = temp;
-	*len_1 += 1;
+	push(lst->lst_a, lst->lst_b, &lst->len_a, &lst->len_b);
+	lst->len_b -= 1;
+	ft_printf("pa\n");
+}
+
+void	ft_pb(t_int_list *lst)
+{
+	if (!lst->len_a)
+		return ;
+	push(lst->lst_b, lst->lst_a, &lst->len_b, &lst->len_a);
+	lst->len_a -= 1;
+	ft_printf("pb\n");
 }

@@ -1,42 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 09:50:53 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/16 12:05:51 by llevasse         ###   ########.fr       */
+/*   Created: 2023/01/16 11:40:43 by llevasse          #+#    #+#             */
+/*   Updated: 2023/01/16 11:40:52 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	push(int *lst_1, int *lst_2, int *len_1, int *len_2)
+void	ft_sa(t_int_list *lst)
 {
-	int	i;
-	int	temp;
+	swap(lst->lst_a);
+	ft_printf("sa\n");
+}
 
-	i = 0;
-	temp = *lst_2 ;
-	while (i++ < *len_2 && lst_2++)
-		*(lst_2 - 1) = *lst_2;
-	*(lst_2 - 1) = 0;
-	if (*len_1 == 0)
-	{
-		*lst_1 = temp;
-		*len_1 += 1;
-		return ;
-	}
-	i = 0;
-	while (i++ < *len_1)
-		lst_1++;
-	lst_1++;
-	while (i-- > 0)
-	{
-		*lst_1 = *(lst_1 - 1);
-		lst_1--;
-	}
-	*lst_1 = temp;
-	*len_1 += 1;
+void	ft_sb(t_int_list *lst)
+{
+	swap(lst->lst_b);
+	ft_printf("sb\n");
+}
+
+void	ft_ss(t_int_list *lst)
+{
+	swap(lst->lst_a);
+	swap(lst->lst_b);
+	ft_printf("ss\n");
 }

@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/14 18:58:46 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:04:51 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,35 @@ t_int_list	*init_list(int argc, char *argv[])
 		return (free(lst), NULL);
 	}
 	set_zero(lst->lst_b, argc - 1);
-	lst->ptr_a = &lst->len_a;
 	lst->len_b = 0;
-	lst->ptr_b = &lst->len_b;
 	if (is_duplicate(lst->lst_a, lst->len_a))
 	{
 		kill_lst(lst);
 		lst = NULL;
 	}
 	return (lst);
+}
+
+int	*get_list(t_int_list *lst, int argc, char *argv[])
+{
+	int	*lst_a;
+	int	i;
+
+	if (argc == 1)
+		return (0);
+	lst_a = malloc((argc) * sizeof(int));
+	if (!lst_a)
+		return (NULL);
+	set_zero(lst_a, argc - 1);
+	i = 0;
+	while (i++ < argc && argv[i] && is_char_only_digits(argv[i]))
+		*lst_a++ = ft_atoi(argv[i]);
+	lst_a -= (i - 1);
+	lst->len_a = i - 1;
+	lst->max_len = i - 1;
+	if (!is_char_only_digits(argv[i]))
+		return (free(lst_a), NULL);
+	return (lst_a);
 }
 
 int	kill_lst(t_int_list *lst)

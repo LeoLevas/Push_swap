@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 14:24:23 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/15 09:47:45 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:29:48 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,105 +73,31 @@ int	get_best_pos_in_b(t_int_list *lst)
 	return (i);
 }
 
-void	rotate_best_pos(t_int_list *lst)
+int	get_and_push(t_int_list *lst, t_chunk *chunk, int i)
 {
-	int	pos;
-	int	biggest_in_b;
-	int	smallest_in_b;
-
-	biggest_in_b = get_highest_elem(lst->lst_b, lst->len_b);
-	smallest_in_b = get_lowest_elem(lst->lst_b, lst->len_b);
-	if (*lst->lst_a < smallest_in_b)
+	chunk->is_1_holded = 0;
+	chunk->is_2_holded = 0;
+	if (is_in_chunk(chunk, *(lst->lst_a + i)))
 	{
-		pos = get_lowest_elem_pos(lst->lst_b, lst->len_b);
-		if (!pos)
-			return ;
-		if (pos < (lst->len_b / 2))
-		{
-			while (pos != 0)
-			{
-				ft_rb(lst);
-				pos = get_lowest_elem_pos(lst->lst_b, lst->len_b);
-			}
-		}
-		else
-		{
-			while (pos != 0)
-			{
-				ft_rrb(lst);
-				pos = get_lowest_elem_pos(lst->lst_b, lst->len_b);
-			}
-		}
+		chunk->hold_1 = *(lst->lst_a + i);
+		chunk->is_1_holded = 1;
 	}
-	if (*lst->lst_a < biggest_in_b)
+	i++;
+	if (is_in_chunk(chunk, *(lst->lst_a + ((lst->len_a) - i))))
 	{
-		pos = get_best_pos_in_b(lst);
-		if (!pos)
-			return ;
-		if (pos < (lst->len_b / 2))
-		{
-			while (pos != 0)
-			{
-				ft_rb(lst);
-				pos = get_best_pos_in_b(lst);
-			}
-		}
-		else
-		{
-			while (pos != 0)
-			{
-				if (*lst->lst_a == 13)
-					print_list(lst, 1);
-				ft_rrb(lst);
-				pos = get_best_pos_in_b(lst);
-			}
-		}
+		chunk->hold_2 = *(lst->lst_a + (lst->len_a - i));
+		chunk->is_2_holded = 1;
 	}
-	else
+	if (chunk->is_1_holded && chunk->is_2_holded)
+		rotate_holds(lst, chunk->hold_1, chunk->hold_2);
+	else if (chunk->is_1_holded && !chunk->is_2_holded)
+		rotate_one_hold(lst, chunk->hold_1);
+	else if (chunk->is_2_holded && !chunk->is_1_holded)
+		rotate_one_hold(lst, chunk->hold_2);
+	if (chunk->is_1_holded || chunk->is_2_holded)
 	{
-		pos = get_lowest_elem_pos(lst->lst_b, lst->len_b);
-		if (!pos)
-			return ;
-		if (pos < (lst->len_b / 2))
-		{
-			while (pos != 0)
-			{
-				ft_rb(lst);
-				pos = get_lowest_elem_pos(lst->lst_b, lst->len_b);
-			}
-		}
-		else
-		{
-			while (pos != 0)
-			{
-				ft_rrb(lst);
-				pos = get_lowest_elem_pos(lst->lst_b, lst->len_b);
-			}
-		}
+		check_push_b(lst);
+		i = 0;
 	}
-}
-
-void	get_highest_to_top(t_int_list *lst)
-{
-	int	pos;
-
-	pos = get_highest_elem_pos(lst->lst_b, lst->len_b);
-	if (!pos)
-		return ;
-	if (pos < (lst->len_b / 2))
-	{
-		while (pos != 0)
-		{
-			ft_rb(lst);
-			pos = get_highest_elem_pos(lst->lst_b, lst->len_b);
-		}
-	}
-	else
-	{
-		while (pos != 0)
-		{
-			ft_rrb(lst);
-			pos = get_highest_elem_pos(lst->lst_b, lst->len_b);
-		}
-	}
+	return (i);
 }

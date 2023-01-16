@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 17:24:28 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/15 14:12:56 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/16 11:37:12 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,11 @@ t_chunk	*init_chunk(t_int_list *lst)
 	chunk = malloc(sizeof(t_chunk));
 	if (!chunk)
 		return (NULL);
-
 	chunk->max = get_highest_elem(lst->lst_a, lst->len_a);
 	chunk->min = get_lowest_elem(lst->lst_a, lst->len_a);
 	chunk->length = 20;
 	chunk->nbr_chunk = (get_range(chunk->min, chunk->max) / 20) + 1;
 	chunk->index = 1;
-
 	return (chunk);
 }
 
@@ -47,7 +45,6 @@ int	need_search_chunk(t_int_list *lst, t_chunk *chunk)
 	int	nbr;
 
 	i = 0;
-
 	while (i < lst->len_a)
 	{
 		nbr = *(lst->lst_a + i);
@@ -68,42 +65,4 @@ int	get_int_pos_in_list(t_int_list *lst, int nbr)
 	if (i > lst->len_a)
 		return (-1);
 	return (i);
-}
-
-int	get_hold_best_rotate(t_int_list *lst, int nbr)
-{
-	int	pos;
-
-	pos = get_int_pos_in_list(lst, nbr);
-	if (pos == -1)
-		return (0);
-	if (nbr == *lst->lst_a)
-		return (0);
-	if (pos < (lst->len_a) / 2)
-		return (1);
-	return (-1);
-}
-
-void	rotate_holds(t_int_list *lst, int hold_1, int hold_2)
-{
-	int	dist_from_start;
-	int	dist_from_end;
-
-	dist_from_start = get_int_pos_in_list(lst, hold_1);
-	dist_from_end = (lst->len_a) - get_int_pos_in_list(lst, hold_2);
-	if (dist_from_start < dist_from_end)
-		rotate_one_hold(lst, hold_1);
-	else
-		rotate_one_hold(lst, hold_2);
-}
-
-void	rotate_one_hold(t_int_list *lst, int hold)
-{
-	while (get_hold_best_rotate(lst, hold) != 0)
-	{	
-		while (get_hold_best_rotate(lst, hold) == 1)
-			ft_ra(lst);
-		while (get_hold_best_rotate(lst, hold) == -1)
-			ft_rra(lst);
-	}
 }

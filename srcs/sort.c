@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:10:31 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/15 14:16:30 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:28:04 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,69 +50,34 @@ void	less_five_sort(t_int_list *lst)
 		pos = get_elem_position_in_sort(lst, *lst->lst_b);
 		if (pos <= (lst->len_a / 2))
 		{
-			while (pos != 0)
-			{
+			while (get_elem_position_in_sort(lst, *lst->lst_b) != 0)
 				ft_ra(lst);
-				pos = get_elem_position_in_sort(lst, *lst->lst_b);
-			}
 		}
 		if (pos > (lst->len_a / 2))
 		{
-			while (pos != 0)
-			{
+			while (get_elem_position_in_sort(lst, *lst->lst_b) != 0)
 				ft_rra(lst);
-				pos = get_elem_position_in_sort(lst, *lst->lst_b);
-			}
 		}
 		ft_pa(lst);
+		if (*lst->lst_a > *(lst->lst_a + 1))
+			ft_ra(lst);
 	}
-	if (*lst->lst_a > *(lst->lst_a + 1))
-		ft_ra(lst);
 	return ;
 }
 
 void	big_sort(t_int_list *lst)
 {
 	int		i;
-	int		is_1_holded;
-	int		is_2_holded;
 	t_chunk	*chunk;
 
 	chunk = init_chunk(lst);
 	if (!chunk)
 		return ;
-	is_1_holded = 0;
-	is_2_holded = 0;
 	while (!is_stack_sorted(lst) && chunk->index <= chunk->nbr_chunk)
 	{
 		i = 0;
 		while (i < lst->len_a && need_search_chunk(lst, chunk) && lst->len_a)
-		{
-			if (is_in_chunk(chunk, *(lst->lst_a + i)))
-			{
-				chunk->hold_1 = *(lst->lst_a + i);
-				is_1_holded = 1;
-			}
-			i++;
-			if (is_in_chunk(chunk, *(lst->lst_a + ((lst->len_a) - i))))
-			{
-				chunk->hold_2 = *(lst->lst_a + (lst->len_a - i));
-				is_2_holded = 1;
-			}
-			if (is_1_holded && is_2_holded)
-				rotate_holds(lst, chunk->hold_1, chunk->hold_2);
-			else if (is_1_holded && !is_2_holded)
-				rotate_one_hold(lst, chunk->hold_1);
-			else if (is_2_holded && !is_1_holded)
-				rotate_one_hold(lst, chunk->hold_2);
-			if (is_1_holded || is_2_holded)
-			{
-				check_push_b(lst);
-				i = 0;
-			}
-			is_1_holded = 0;
-			is_2_holded = 0;
-		}
+			i = get_and_push(lst, chunk, i);
 		chunk->index++;
 		chunk->min += chunk->length;
 	}
