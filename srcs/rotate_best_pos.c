@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:27:02 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/16 11:35:21 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/20 17:51:40 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	rotate_best_pos(t_int_list *lst)
 	if (*lst->lst_a > biggest_in_b)
 		return (new_highest(lst));
 	if (*lst->lst_a < smallest_in_b)
-		new_smallest(lst);
+		return (new_smallest(lst));
+	return (rotate_one_hold_b(lst, *lst->lst_a));
 }
 
 void	new_smallest(t_int_list *lst)
