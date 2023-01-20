@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:51:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/16 13:53:22 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:16:09 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ int					get_range(int min, int max);
 /* get_elem.c */
 
 int					get_elem_position_in_sort(t_int_list *lst, int temp);
-int					get_highest_elem_pos(int *lst, int len);
 int					get_highest_elem(int *lst, int len);
-int					get_lowest_elem_pos(int *lst, int len);
+int					get_highest_elem_pos(int *lst, int len);
 int					get_lowest_elem(int *lst, int len);
+int					get_lowest_elem_pos(int *lst, int len);
 
 /* {func name}.c */
 
@@ -136,5 +136,10 @@ void				rotate_best_pos(t_int_list *lst);
 void				get_highest_to_top(t_int_list *lst);
 void				new_smallest(t_int_list *lst);
 void				new_highest(t_int_list *lst);
+
+/* significant_digit.c */
+
+int					get_lsd(int *lst, int len, int digit);
+int					get_msd(int *lst, int len, int digit);
 
 #endif

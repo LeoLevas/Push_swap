@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:10:31 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/16 12:28:04 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/20 17:38:51 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,20 +68,18 @@ void	less_five_sort(t_int_list *lst)
 void	big_sort(t_int_list *lst)
 {
 	int		i;
-	t_chunk	*chunk;
 
-	chunk = init_chunk(lst);
-	if (!chunk)
-		return ;
-	while (!is_stack_sorted(lst) && chunk->index <= chunk->nbr_chunk)
+	i = 0;
+	while (!is_stack_sorted(lst) && i < 10)
 	{
-		i = 0;
-		while (i < lst->len_a && need_search_chunk(lst, chunk) && lst->len_a)
-			i = get_and_push(lst, chunk, i);
-		chunk->index++;
-		chunk->min += chunk->length;
+		while (get_int_pos_in_list(lst, get_lsd(lst->lst_a, lst->len_a, i)) != -1)
+		{
+			rotate_one_hold(lst, get_lsd(lst->lst_a, lst->len_a, i));
+			ft_pb(lst);
+		}
+		i++;
 	}
-	free(chunk);
+	return ;
 	while (lst->len_a != lst->max_len)
 	{
 		get_highest_to_top(lst);

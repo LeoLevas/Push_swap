@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 17:24:28 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/16 11:37:12 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:47:39 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ int	get_int_pos_in_list(t_int_list *lst, int nbr)
 	int	i;
 
 	i = 0;
-	while (*(lst->lst_a + i) != nbr)
+	while (*(lst->lst_a + i) != nbr && i < lst->len_a)
 		i++;
-	if (i > lst->len_a)
-		return (-1);
-	return (i);
+	if (*(lst->lst_a + i) == nbr)
+		return (i);
+	return (-1);
 }
