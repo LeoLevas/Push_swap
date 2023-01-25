@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/25 18:08:24 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/25 22:29:50 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int	*get_list(t_int_list *lst, int argc, char *argv[])
 			return (free(lst_a - i), NULL);
 	}
 	lst_a -= (i - 1);
-	lst->len_a = i - 2;
-	lst->max_len = i - 2;
+	lst->len_a = i - 1;
+	lst->max_len = i - 1;
 	if (!is_char_only_digits(argv[i]))
 		return (free(lst_a), NULL);
 	return (lst_a);

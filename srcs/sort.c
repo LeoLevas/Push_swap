@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:10:31 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/25 17:51:42 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/25 22:55:38 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@ void	less_three_sort(t_int_list *lst)
 	if (lst->len_a == 1)
 		return ;
 	if (lst->len_a == 2 && *lst->lst_a > *(lst->lst_a + 1))
-		return (ft_sa(lst));
+		return (ft_sa(lst, NULL));
 	if (lst->len_b == 2 && *lst->lst_b > *(lst->lst_b + 1))
-		(ft_sb(lst));
+		(ft_sb(lst, NULL));
 	if (*lst->lst_a > *(lst->lst_a + 1) && *lst->lst_a < *(lst->lst_a + 2) \
 		&& *(lst->lst_a + 1) < *(lst->lst_a + 2))
-		return (ft_sa(lst));
+		return (ft_sa(lst, NULL));
 	if (*lst->lst_a > *(lst->lst_a + 1) && *lst->lst_a > *(lst->lst_a + 2) \
 		&& *(lst->lst_a + 1) > *(lst->lst_a + 2))
-		return (ft_sa(lst), ft_rra(lst));
+		return (ft_sa(lst, NULL), ft_rra(lst, NULL));
 	if (*lst->lst_a > *(lst->lst_a + 1) && *lst->lst_a > *(lst->lst_a + 2) \
 		&& *(lst->lst_a + 1) < *(lst->lst_a + 2))
-		return (ft_ra(lst));
+		return (ft_ra(lst, NULL));
 	if (*lst->lst_a < *(lst->lst_a + 1) && *lst->lst_a < *(lst->lst_a + 2) \
 		&& *(lst->lst_a + 1) > *(lst->lst_a + 2))
-		return (ft_sa(lst), ft_ra(lst));
+		return (ft_sa(lst, NULL), ft_ra(lst, NULL));
 	if (*lst->lst_a < *(lst->lst_a + 1) && *lst->lst_a > *(lst->lst_a + 2) \
 		&& *(lst->lst_a + 1) > *(lst->lst_a + 2))
-		return (ft_rra(lst));
+		return (ft_rra(lst, NULL));
 	return ;
 }
 
@@ -43,7 +43,7 @@ void	less_five_sort(t_int_list *lst)
 	int	pos;
 
 	while (lst->len_a > 3)
-		ft_pb(lst);
+		ft_pb(lst, NULL);
 	less_three_sort(lst);
 	while (lst->len_b > 0)
 	{
@@ -51,44 +51,42 @@ void	less_five_sort(t_int_list *lst)
 		if (pos <= (lst->len_a / 2))
 		{
 			while (get_elem_position_in_sort(lst, *lst->lst_b) != 0)
-				ft_ra(lst);
+				ft_ra(lst, NULL);
 		}
 		if (pos > (lst->len_a / 2))
 		{
 			while (get_elem_position_in_sort(lst, *lst->lst_b) != 0)
-				ft_rra(lst);
+				ft_rra(lst, NULL);
 		}
-		ft_pa(lst);
+		ft_pa(lst, NULL);
 		if (*lst->lst_a > *(lst->lst_a + 1))
-			ft_ra(lst);
+			ft_ra(lst, NULL);
 	}
 	return ;
 }
 
-void	big_sort(t_int_list *lst)
+void	big_sort(t_int_list *lst, t_int_list *lst_simple)
 {
 	int		i;
+	int		j;
+	int		max_bit;
 
 	i = 0;
-	while (!is_stack_sorted(lst) && i < 3)
+	while ((lst_simple->max_len >> max_bit) != 0)
+		max_bit++;
+	while (!is_stack_sorted(lst_simple))
 	{
-	
+		j = 0;
+		while (j < lst->max_len)
+		{
+			if (((*lst_simple->lst_a >> i) & 1) == 1)
+				ft_ra(lst, lst_simple);
+			else
+				ft_pb(lst, lst_simple);
+			j++;
+		}
+		i++;
+		while (lst->len_b != 0)
+			ft_pa(lst, lst_simple);
 	}
-	return ;
-	while (lst->len_a != lst->max_len)
-	{
-		get_highest_to_top(lst);
-		ft_pa(lst);
-	}
-}
-
-void	check_push_b(t_int_list *lst)
-{
-	get_highest_to_top(lst);
-	rotate_best_pos(lst);
-	if (get_highest_elem(lst->lst_b, lst->len_b) < *lst->lst_b)
-		ft_rb(lst);
-	ft_pb(lst);
-	print_list(lst, 1);
-	get_highest_to_top(lst);
 }
