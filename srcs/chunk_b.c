@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 14:24:23 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/20 18:19:56 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/25 16:52:53 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,15 @@ int	get_int_pos_in_list_b(t_int_list *lst, int nbr)
 	int	i;
 
 	i = 0;
-	while (*(lst->lst_b + i) < nbr)
+	while (i < lst->len_b)
+	{
+		if (*(lst->lst_b + i) < nbr && nbr > *(lst->lst_b + (i + 1)))
+			return (i);
 		i++;
+	}
 	if (i > lst->len_b)
 		return (-1);
-	return (i);
+	return (0);
 }
 
 int	get_int_best_rotate_b(t_int_list *lst, int nbr)

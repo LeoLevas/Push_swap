@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:10:31 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/20 18:45:16 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/25 16:41:01 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	big_sort(t_int_list *lst)
 		{
 			rotate_one_hold(lst, get_lsd(lst->lst_a, lst->len_a, i));
 			check_push_b(lst);
-			print_list(lst, 2);
+			print_list(lst, 1);
 		}
 		i++;
 	}
@@ -90,16 +90,11 @@ void	big_sort(t_int_list *lst)
 
 void	check_push_b(t_int_list *lst)
 {
-	if (lst->len_b < 2)
-		return (ft_pb(lst));
-	if (lst->len_b < 3)
-	{
-		if (*lst->lst_b > *lst->lst_a && *(lst->lst_b + 1) > *lst->lst_a)
-			return (ft_pb(lst));
-		ft_rb(lst);
-		return (ft_pb(lst));
-	}
+	get_highest_to_top(lst);
 	rotate_best_pos(lst);
+	if (get_highest_elem(lst->lst_b, lst->len_b) < *lst->lst_b)
+		ft_rb(lst);
 	ft_pb(lst);
+	print_list(lst, 1);
 	get_highest_to_top(lst);
 }
