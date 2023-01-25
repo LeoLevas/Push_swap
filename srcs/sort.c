@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:10:31 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/25 16:41:01 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:51:42 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,9 @@ void	big_sort(t_int_list *lst)
 	int		i;
 
 	i = 0;
-	while (!is_stack_sorted(lst) && i < 1)
+	while (!is_stack_sorted(lst) && i < 3)
 	{
-		while (get_int_pos_in_list(lst, get_lsd(lst->lst_a, lst->len_a, i)) != -1)
-		{
-			rotate_one_hold(lst, get_lsd(lst->lst_a, lst->len_a, i));
-			check_push_b(lst);
-			print_list(lst, 1);
-		}
-		i++;
+	
 	}
 	return ;
 	while (lst->len_a != lst->max_len)

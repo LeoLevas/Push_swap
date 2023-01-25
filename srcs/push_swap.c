@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:50:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/25 16:04:32 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:16:54 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 int	main(int argc, char *argv[])
 {
 	t_int_list	*lst;
+	t_int_list	*lst_simple;
 
 	lst = init_list(argc, argv);
-	if (!lst)
-		return (ft_printf("Error\n"));
-	print_list(lst, 2);
+	lst_simple = init_list(argc, argv);
+	if (!lst || !lst_simple)
+		return (kill_lst(lst, lst_simple), ft_printf("Error\n"));
+	simple_lst(lst, lst_simple);
+	print_list(lst_simple, 0);
+/* 	print_list(lst, 2);
 	if (is_stack_sorted(lst))
-		return (kill_lst(lst));
+		return (kill_lst(lst, lst_simple), 0);
 	if (lst->len_a <= 3 && !is_stack_sorted(lst))
 		less_three_sort(lst);
 	if (lst->len_a <= 5 && !is_stack_sorted(lst))
@@ -34,5 +38,5 @@ int	main(int argc, char *argv[])
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-	return (kill_lst(lst));
+ */	return (kill_lst(lst, lst_simple), 0);
 }

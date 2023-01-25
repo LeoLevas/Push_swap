@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:51:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/20 16:16:09 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:11:32 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,12 @@ void				check_push_b(t_int_list *lst);
 
 t_int_list			*init_list(int argc, char *argv[]);
 int					*get_list(t_int_list *lst, int argc, char *argv[]);
-int					kill_lst(t_int_list *lst);
+void				kill_lst(t_int_list *lst, t_int_list *lst_copy);
+
+/* init_simple */
+
+void				simple_lst(t_int_list *lst, t_int_list *lst_simple);
+
 
 /* check_int.c */
 
