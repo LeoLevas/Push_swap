@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:27:02 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/16 11:35:21 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/25 14:34:38 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ void	new_highest(t_int_list *lst)
 	{
 		while (pos != 0)
 		{
-			if (*lst->lst_a == 13)
-				print_list(lst, 1);
 			ft_rrb(lst);
 			pos = get_best_pos_in_b(lst);
 		}

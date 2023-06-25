@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:51:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/16 13:53:22 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/25 14:31:05 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stddef.h>
 # include <unistd.h>
 # include "../libft/libft.h"
-# include "../libft/ft_printf.h"
 
 typedef struct s_int_list
 {
