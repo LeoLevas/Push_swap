@@ -6,7 +6,7 @@
 #    By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/14 17:00:51 by llevasse          #+#    #+#              #
-#    Updated: 2023/06/25 14:33:10 by llevasse         ###   ########.fr        #
+#    Updated: 2023/06/25 17:05:16 by llevasse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,24 +38,36 @@ LIBFT			= libft/libft.a
 
 OBJS			= ${FILES:.c=.o} ${LIBFT_FILES:.c=.o}
 
+RED				=	\033[0;31m
+GREEN			=	\033[0;32m
+NC				=	\033[0m
+
 NAME			= push_swap
 
 %.o:			%.c $(LIBFT) Makefile includes/push_swap.h
 					cc ${FLAGS} -c $< -o ${<:.c=.o}
 				
-${NAME}:		libft ${OBJS} $(NAME) includes/push_swap.h Makefile
+${NAME}:		libft ${OBJS} includes/push_swap.h Makefile
 					cc $(FLAGS) $(OBJS) $(LIBFT) -o $@
+					@echo "$(GREEN)All files compiled succesfully :D$(NC)"
+					@norminette $(INC_DIR)*.h | awk '$$NF!="OK!" {print "$(RED)" $$0 "$(NC)"}'
+					@norminette $(FILES) | awk '$$NF!="OK!" {print "$(RED)" $$0 "$(NC)"}'
+					@norminette libft/ | awk '$$NF!="OK!" {print "$(RED)" $$0 "$(NC)"}'
 
 $(LIBFT)::
 				@make -sC libft
 
 all:			${NAME}
 
-clean:			
+clean:
+					@make -sC libft clean
 					rm -f ${OBJS}
+					@echo "$(GREEN)All object files deleted succesfully :D$(NC)"
 
 fclean:			clean
-					rm -f ${NAME}
+					@make -sC libft fclean
+					rm -f ${NAME} $(NAME)
+					@echo "$(GREEN)All exec files deleted succesfully :D$(NC)"
 
 re:				fclean all
 
