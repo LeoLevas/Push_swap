@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-long long	ft_atoi_long_long(const char *str)
+long long		ft_atoi_long_long(const char *str)
 {
 	size_t				i;
 	long long			res;

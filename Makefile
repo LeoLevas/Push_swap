@@ -6,7 +6,7 @@
 #    By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/14 17:00:51 by llevasse          #+#    #+#              #
-#    Updated: 2023/06/25 17:05:16 by llevasse         ###   ########.fr        #
+#    Updated: 2023/06/25 20:52:44 by llevasse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,8 @@ FILES			= 	srcs/check_int.c \
 					srcs/rotate.c \
 					srcs/sort.c \
 					srcs/swap.c \
+					srcs/init_simple.c \
+					srcs/significant_digit.c
 
 
 INC_DIR			= includes/

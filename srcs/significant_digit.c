@@ -1,42 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   significant_digit.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 09:50:53 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/20 17:37:30 by llevasse         ###   ########.fr       */
+/*   Created: 2023/01/20 16:01:21 by llevasse          #+#    #+#             */
+/*   Updated: 2023/01/25 16:06:24 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	push(int *lst_1, int *lst_2, int *len_1, int *len_2)
+int	get_lsd(int *lst, int len, int digit)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		if (*(lst + i) % 10 == digit)
+			return (*(lst + i));
+		if (*(lst + i) == digit)
+			return (*(lst + i));
+		i++;
+	}
+	return (0);
+}
+
+int	get_msd(int	*lst, int len, int digit)
 {
 	int	i;
 	int	temp;
 
 	i = 0;
-	temp = *lst_2 ;
-	while (i++ < *len_2 && lst_2++)
-		*(lst_2 - 1) = *lst_2;
-	*(lst_2) = 0;
-	if (*len_1 == 0)
+	while (i < len)
 	{
-		*lst_1 = temp;
-		*len_1 += 1;
-		return ;
+		temp = *(lst + i);
+		while (get_int_len(temp) > 1)
+			temp /= 10;
+		if (temp == digit)
+			return (*(lst + i));
+		i++;
 	}
-	i = 0;
-	while (i++ < *len_1)
-		lst_1++;
-	lst_1++;
-	while (i-- > 0)
-	{
-		*lst_1 = *(lst_1 - 1);
-		lst_1--;
-	}
-	*lst_1 = temp;
-	*len_1 += 1;
+	return (0);
 }

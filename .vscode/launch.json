@@ -1,0 +1,26 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+	{
+		"name": "test push_swap",
+		"type": "cppdbg",
+		"request": "launch",
+		"program": "${workspaceFolder}/bin/push_swap",
+		"args": ["87", "60", "96", "94", "47", "17", "74", "31", "19", "12", "36", "20", "92", "73", "58", "35", "37", "24", "48", "49", "53", "30", "18", "72", "79", "75", "28", "22", "44", "45", "81", "82", "59", "64", "43", "16", "52", "95", "98", "67", "6", "50", "13", "56", "33", "21", "40", "70", "11", "2", "85", "27", "83", "93", "97", "8", "34", "66", "23", "99", "0", "32", "84", "41", "90", "10", "80", "71", "89", "86", "88", "68", "26", "51", "14", "5", "4", "63", "55", "91", "77", "57", "25", "29", "7", "61", "39", "65", "42", "78", "76", "1", "9", "15", "38", "3", "69", "62", "46", "54"],
+		"cwd": ".",
+		"environment": [],
+		"stopAtEntry": false,
+		"MIMode": "gdb",
+		"setupCommands": [
+			{
+				"description": "Enable pretty-printing for gdb",
+				"text": "-enable-pretty-printing",
+				"ignoreFailures": true
+			}
+		],
+		"preLaunchTask": "debug push swap"
+	}]
+}

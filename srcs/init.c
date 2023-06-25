@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/25 17:54:10 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/25 20:53:37 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ t_int_list	*init_list(int argc, char *argv[])
 	set_zero(lst->lst_b, argc - 1);
 	lst->len_b = 0;
 	if (is_duplicate(lst->lst_a, lst->len_a))
-	{
-		kill_lst(lst);
 		lst = NULL;
-	}
 	return (lst);
 }
 
@@ -94,8 +91,17 @@ int	*get_list_split(t_int_list *lst, int *argc, char **tab)
 
 int	kill_lst(t_int_list *lst)
 {
-	free(lst->lst_a);
-	free(lst->lst_b);
-	free(lst);
-	return (0);
+	if (lst)
+	{
+		free(lst->lst_a);
+		free(lst->lst_b);
+		free(lst);
+	}
+	if (lst_copy)
+	{
+		free(lst_copy->lst_a);
+		free(lst_copy->lst_b);
+		free(lst_copy);
+	}
+	return ;
 }
