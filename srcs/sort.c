@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:10:31 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/25 21:02:24 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/25 21:10:56 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,8 @@ void	big_sort(t_int_list *lst, t_int_list *lst_simple)
 {
 	int		i;
 	int		j;
-//	int		max_bit;
 
 	i = 0;
-//	max_bit = 0;
-//	while ((lst_simple->max_len >> max_bit) != 0)
-//		max_bit++;
 	while (!is_stack_sorted(lst_simple))
 	{
 		j = 0;
