@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/25 20:53:37 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/25 20:57:11 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	*get_list_split(t_int_list *lst, int *argc, char **tab)
 	return (lst_a);
 }
 
-int	kill_lst(t_int_list *lst)
+void	kill_lst(t_int_list *lst, t_int_list *lst_copy)
 {
 	if (lst)
 	{

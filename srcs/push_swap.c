@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:50:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/25 20:54:06 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/25 20:56:49 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int	main(int argc, char *argv[])
 		less_five_sort(lst);
 	else if (lst->max_len > 5)
 		big_sort(lst, lst_simple);
-	ft_printf("-----AFTER  SORT-----\n");
-	print_list(lst, 0);
 	if (is_stack_sorted(lst))
 		ft_printf("OK\n");
 	else

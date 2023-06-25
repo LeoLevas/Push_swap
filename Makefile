@@ -6,27 +6,23 @@
 #    By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/14 17:00:51 by llevasse          #+#    #+#              #
-#    Updated: 2023/06/25 20:52:44 by llevasse         ###   ########.fr        #
+#    Updated: 2023/06/25 21:04:22 by llevasse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS			= -Wall -Wextra -Werror -g -I $(INC_DIR)
 
 FILES			= 	srcs/check_int.c \
-					srcs/chunk_b.c \
-					srcs/chunk.c \
 					srcs/ft_push.c \
 					srcs/ft_reverse_rotate.c \
 					srcs/ft_rotate.c \
 					srcs/ft_swap.c \
 					srcs/get_elem.c \
-					srcs/holds.c \
 					srcs/init.c \
 					srcs/push.c \
 					srcs/push_swap.c \
 					srcs/push_swap_utils.c \
 					srcs/reverse_rotate.c \
-					srcs/rotate_best_pos.c \
 					srcs/rotate.c \
 					srcs/sort.c \
 					srcs/swap.c \
