@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:40:43 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/25 18:49:40 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:07:40 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 void	ft_sa(t_int_list *lst, t_int_list *lst_simple)
 {
 	swap(lst->lst_a);
-	swap(lst_simple->lst_a);
+	if (lst_simple)
+		swap(lst_simple->lst_a);
 	ft_printf("sa\n");
 }
 
 void	ft_sb(t_int_list *lst, t_int_list *lst_simple)
 {
 	swap(lst->lst_b);
-	swap(lst_simple->lst_b);
+	if (lst_simple)
+		swap(lst_simple->lst_b);
 	ft_printf("sb\n");
 }
 
@@ -30,7 +32,10 @@ void	ft_ss(t_int_list *lst, t_int_list *lst_simple)
 {
 	swap(lst->lst_a);
 	swap(lst->lst_b);
-	swap(lst_simple->lst_a);
-	swap(lst_simple->lst_b);
+	if (lst_simple)
+	{
+		swap(lst_simple->lst_a);
+		swap(lst_simple->lst_b);
+	}
 	ft_printf("ss\n");
 }
