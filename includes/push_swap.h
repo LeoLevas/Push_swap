@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:51:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/25 21:09:08 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/26 17:13:12 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_chunk
 	int	nbr_chunk;
 }	t_chunk;
 
-void				print_list(t_int_list *lst, int all);
+void				print_list(t_int_list *lst);
 
 /* push_swap_utils.c */
 
