@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/26 11:19:52 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/26 15:37:17 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int	*get_list(t_int_list *lst, int *argc, char *argv[])
 	int	*lst_a;
 	int	i;
 
-	if (*argc == 1)
-		return (0);
 	if (*argc == 2)
 		return (get_list_split(lst, argc, ft_split(argv[1], " ")));
 	lst_a = malloc((*argc) * sizeof(int));
@@ -67,6 +65,8 @@ int	*get_list_split(t_int_list *lst, int *argc, char **tab)
 	int	i;
 	int	*lst_a;
 
+	if (!tab)
+		return (NULL);
 	*argc = get_split_size(tab) + 1;
 	lst_a = malloc(*argc * sizeof(int));
 	if (!lst_a)
@@ -103,5 +103,4 @@ void	kill_lst(t_int_list *lst, t_int_list *lst_copy)
 		free(lst_copy->lst_b);
 		free(lst_copy);
 	}
-	return ;
 }
