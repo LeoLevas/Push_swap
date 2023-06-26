@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/26 11:11:29 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/26 11:19:52 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ t_int_list	*init_list(int argc, char *argv[])
 	}
 	set_zero(lst->lst_b, argc - 1);
 	lst->len_b = 0;
-	if (is_duplicate(lst->lst_a, lst->len_a))
-		lst = NULL;
 	return (lst);
 }
 
@@ -77,16 +75,17 @@ int	*get_list_split(t_int_list *lst, int *argc, char **tab)
 	i = 0;
 	while (i < *argc && tab[i] && is_char_only_digits(tab[i]))
 	{
-		*lst_a++ = ft_atoi(tab[i]);
-		if (ft_atoi_long_long(tab[i]) > 2147483647 \
-		|| ft_atoi_long_long(tab[i]) < -2147483648)
-			return (free(lst_a - i), NULL);
-		i++;
+		*lst_a++ = ft_atoi(tab[i++]);
+		if (ft_atoi_long_long(tab[i - 1]) > 2147483647 \
+		|| ft_atoi_long_long(tab[i - 1]) < -2147483648)
+			return (free(lst_a - (i - 1)), NULL);
 	}
 	lst_a -= i;
 	lst->len_a = i;
 	lst->max_len = i;
 	free_tab(tab);
+	if (is_duplicate(lst_a, i))
+		return (free(lst_a), lst_a = NULL, NULL);
 	return (lst_a);
 }
 
