@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:50:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/27 22:34:26 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/27 22:57:01 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	print_list(t_int_list *lst)
 	len_a = lst->len_a;
 	len_b = lst->len_b;
 	i = 0;
-	ft_printf("lst A\t\tlst B\n");
+	ft_printf("\33[2K\rlst A\t\tlst B\n");
 	while (i < len_a || i < lst->len_b)
 	{
 		if (i < len_a)
@@ -41,9 +41,10 @@ void	print_list(t_int_list *lst)
 void	print_inst(t_int_list *lst)
 {
 	ft_printf("\33[2K\rpa : %d | pb : %d | ra : %d | rb : %d | rr : %d\
-	 | rra : %d | rrb : %d | rrr : %d | sa : %d | sb : %d | ss : %d",
+| rra : %d | rrb : %d | rrr : %d | sa : %d | sb : %d | ss : %d",
 		lst->pa, lst->pb, lst->ra, lst->rb, lst->rr, lst->rra, lst->rrb,
 		lst->rrr, lst->sa, lst->sb, lst->ss);
+	usleep(20);
 }
 
 int	main(int argc, char *argv[])
