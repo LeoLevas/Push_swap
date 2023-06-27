@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:10:31 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/26 12:09:01 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:12:07 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ void	less_five_sort(t_int_list *lst)
 				ft_rra(lst, NULL);
 		}
 		ft_pa(lst, NULL);
-		if (*lst->lst_a > *(lst->lst_a + 1))
-			ft_ra(lst, NULL);
+		if (*lst->lst_a > *(lst->lst_a + lst->len_a))
+			ft_rra(lst, NULL);
 	}
 	return ;
 }

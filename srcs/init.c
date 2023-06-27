@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/26 17:24:05 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/27 16:32:46 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,17 @@ int	*get_list(t_int_list *lst, int *argc, char *argv[])
 		return (NULL);
 	set_zero(lst_a, *argc);
 	i = 0;
-	while (i < *argc && argv[i] && is_char_only_digits(argv[i]))
+	while (i < *argc && argv[i + 1] && is_char_only_digits(argv[i + 1]))
 	{
-		*lst_a++ = ft_atoi(argv[i++]);
-		if (ft_atoi_long_long(argv[i - 1]) > 2147483647 \
-		|| ft_atoi_long_long(argv[i - 1]) < -2147483648)
-			return (free(lst_a - (i - 1)), NULL);
+		*lst_a++ = ft_atoi(argv[(i++) + 1]);
+		if (ft_atoi_long_long(argv[i]) > 2147483647 \
+		|| ft_atoi_long_long(argv[i]) < -2147483648)
+			return (free(lst_a - (i)), NULL);
 	}
 	lst_a -= i;
 	lst->len_a = i;
 	lst->max_len = i;
-	if (is_duplicate(lst_a, i) || !is_char_only_digits(argv[i]))
+	if (is_duplicate(lst_a, i))
 		return (free(lst_a), lst_a = NULL, NULL);
 	return (lst_a);
 }

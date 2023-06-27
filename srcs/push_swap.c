@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:50:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/26 17:12:55 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:12:38 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,23 @@ int	main(int argc, char *argv[])
 	if (argc == 1)
 		return (0);
 	lst = init_list(argc, argv);
-	lst_simple = init_list(argc, argv);
-	if (!lst || !lst_simple)
+	lst_simple = NULL;
+	if (!lst)
 		return (kill_lst(lst, lst_simple), ft_printf("Error\n"));
-	simple_lst(lst, lst_simple);
+	if (lst->len_a > 5)
+	{
+		lst_simple = init_list(argc, argv);
+		if (!lst_simple)
+			return (kill_lst(lst, lst_simple), ft_printf("Error\n"));
+		simple_lst(lst, lst_simple);
+	}
 	if (is_stack_sorted(lst))
 		return (kill_lst(lst, lst_simple), 0);
 	if (lst->len_a <= 3 && !is_stack_sorted(lst))
 		less_three_sort(lst);
 	if (lst->len_a <= 5 && !is_stack_sorted(lst))
 		less_five_sort(lst);
-	else if (lst->max_len > 5)
+	else if (lst->max_len)
 		big_sort(lst, lst_simple);
 	print_list(lst);
 	return (kill_lst(lst, lst_simple), 0);

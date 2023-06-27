@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:30:03 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/26 11:11:12 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:13:03 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	is_stack_sorted(t_int_list *lst)
 	int	*lst_a;
 
 	if (lst->len_a == 0)
-		return (1);
+		return (ft_printf("len of stack A is 0.\n"));
 	lst_a = lst->lst_a;
 	i = 1;
 	lst_a++;
@@ -29,6 +29,7 @@ int	is_stack_sorted(t_int_list *lst)
 	}
 	if ((*lst_a < *(lst_a - 1)))
 		return (0);
+	ft_printf("The stack is sorted!\n");
 	return (1);
 }
 

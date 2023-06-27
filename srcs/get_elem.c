@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:45:36 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/25 21:10:29 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:11:51 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,10 @@ int	get_elem_position_in_sort(t_int_list *lst, int temp)
 	lst_a = lst->lst_a;
 	if (temp < *lst_a)
 		return (i);
-	else if (temp > *lst_a && temp > *(lst_a + lst->len_a))
-		return (i);
-	while (i < lst->len_a)
+	while (i < lst->len_a && temp > *lst_a)
 	{
-		if (*lst_a < temp && *(lst_a + 1) > temp)
-			break ;
-		lst_a++;
 		i++;
+		lst_a++;
 	}
 	return (i);
 }
