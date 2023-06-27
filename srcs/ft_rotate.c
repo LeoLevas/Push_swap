@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:42:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/25 21:10:15 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/27 22:37:32 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ void	ft_ra(t_int_list *lst, t_int_list *lst_simple)
 	rotate(lst->lst_a, lst->len_a);
 	if (lst_simple)
 		rotate(lst_simple->lst_a, lst_simple->len_a);
-	ft_printf("ra\n");
+	lst->ra++;
+	if (!CAN_PRINT)
+		print_inst(lst);
+	else
+		ft_printf("ra\n");
 }
 
 void	ft_rb(t_int_list *lst, t_int_list *lst_simple)
@@ -25,7 +29,11 @@ void	ft_rb(t_int_list *lst, t_int_list *lst_simple)
 	rotate(lst->lst_b, lst->len_b);
 	if (lst_simple)
 		rotate(lst_simple->lst_b, lst_simple->len_b);
-	ft_printf("rb\n");
+	lst->rb++;
+	if (!CAN_PRINT)
+		print_inst(lst);
+	else
+		ft_printf("rb\n");
 }
 
 void	ft_rr(t_int_list *lst, t_int_list *lst_simple)
@@ -36,5 +44,9 @@ void	ft_rr(t_int_list *lst, t_int_list *lst_simple)
 	rotate(lst->lst_b, lst->len_b);
 	if (lst_simple)
 		rotate(lst_simple->lst_b, lst_simple->len_b);
-	ft_printf("rr\n");
+	lst->rr++;
+	if (!CAN_PRINT)
+		print_inst(lst);
+	else
+		ft_printf("rr\n");
 }

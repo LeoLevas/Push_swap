@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/27 16:32:46 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/27 22:23:27 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,17 @@ t_int_list	*init_list(int argc, char *argv[])
 	set_zero(lst->lst_b, argc - 1);
 	lst->len_b = 0;
 	return (lst);
+	lst->pa = 0;
+	lst->pb = 0;
+	lst->ra = 0;
+	lst->rb = 0;
+	lst->rr = 0;
+	lst->rra = 0;
+	lst->rrb = 0;
+	lst->rrr = 0;
+	lst->sa = 0;
+	lst->sb = 0;
+	lst->ss = 0;
 }
 
 int	*get_list(t_int_list *lst, int *argc, char *argv[])

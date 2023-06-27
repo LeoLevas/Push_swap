@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:45:36 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/27 17:11:51 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/27 21:30:30 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,11 @@ int	get_lowest_elem(int *lst, int len)
 	int	temp;
 
 	i = 0;
-	temp = *lst;
+	temp = lst[i];
 	while (i < len)
 	{
-		if (*lst < temp)
-			temp = *lst;
-		lst++;
+		if (lst[i] < temp)
+			temp = lst[i];
 		i++;
 	}
 	return (temp);

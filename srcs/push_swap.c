@@ -6,37 +6,45 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:50:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/27 21:20:11 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/27 22:34:26 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// void	print_list(t_int_list *lst)
-// {
-// 	int	i;
-// 	int	*lst_a;
-// 	int	*lst_b;
-// 	int	len_a;
-// 	int	len_b;
+void	print_list(t_int_list *lst)
+{
+	int	i;
+	int	*lst_a;
+	int	*lst_b;
+	int	len_a;
+	int	len_b;
 
-// 	lst_a = lst->lst_a;
-// 	lst_b = lst->lst_b;
-// 	len_a = lst->len_a;
-// 	len_b = lst->len_b;
-// 	i = 0;
-// 	ft_printf("lst A\t\tlst B\n");
-// 	while (i < len_a || i < lst->len_b)
-// 	{
-// 		if (i < len_a)
-// 			ft_printf("%i : %i", i, *lst_a++);
-// 		ft_printf("\t\t\t");
-// 		if (i < len_b)
-// 			ft_printf("%i", *lst_b++);
-// 		ft_printf("\n");
-// 		i++;
-// 	}
-// }
+	lst_a = lst->lst_a;
+	lst_b = lst->lst_b;
+	len_a = lst->len_a;
+	len_b = lst->len_b;
+	i = 0;
+	ft_printf("lst A\t\tlst B\n");
+	while (i < len_a || i < lst->len_b)
+	{
+		if (i < len_a)
+			ft_printf("%i : %i", i, *lst_a++);
+		ft_printf("\t\t\t");
+		if (i < len_b)
+			ft_printf("%i", *lst_b++);
+		ft_printf("\n");
+		i++;
+	}
+}
+
+void	print_inst(t_int_list *lst)
+{
+	ft_printf("\33[2K\rpa : %d | pb : %d | ra : %d | rb : %d | rr : %d\
+	 | rra : %d | rrb : %d | rrr : %d | sa : %d | sb : %d | ss : %d",
+		lst->pa, lst->pb, lst->ra, lst->rb, lst->rr, lst->rra, lst->rrb,
+		lst->rrr, lst->sa, lst->sb, lst->ss);
+}
 
 int	main(int argc, char *argv[])
 {
@@ -64,5 +72,6 @@ int	main(int argc, char *argv[])
 		less_five_sort(lst);
 	if (lst->len_a > 5)
 		big_sort(lst, lst_simple);
+	print_list(lst);
 	return (kill_lst(lst, lst_simple), 0);
 }

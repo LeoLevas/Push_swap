@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:51:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/26 17:13:12 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/27 22:34:31 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 # include <unistd.h>
 # include "../libft/libft.h"
 
+# ifndef CAN_PRINT
+#  define CAN_PRINT 1
+# endif
+
 typedef struct s_int_list
 {
 	int				*lst_a;
@@ -25,22 +29,21 @@ typedef struct s_int_list
 	int				len_a;
 	int				len_b;
 	int				max_len;
+	int				pa;
+	int				pb;
+	int				ra;
+	int				rb;
+	int				rr;
+	int				rra;
+	int				rrb;
+	int				rrr;
+	int				sa;
+	int				sb;
+	int				ss;
 }	t_int_list;
 
-typedef struct s_chunk
-{
-	int	min;
-	int	max;
-	int	index;
-	int	hold_1;
-	int	hold_2;
-	int	is_1_holded;
-	int	is_2_holded;
-	int	length;
-	int	nbr_chunk;
-}	t_chunk;
-
 void				print_list(t_int_list *lst);
+void				print_inst(t_int_list *lst);
 
 /* push_swap_utils.c */
 
