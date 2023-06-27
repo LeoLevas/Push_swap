@@ -6,11 +6,11 @@
 #    By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/14 17:00:51 by llevasse          #+#    #+#              #
-#    Updated: 2023/06/26 10:59:21 by llevasse         ###   ########.fr        #
+#    Updated: 2023/06/27 21:43:24 by llevasse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FLAGS			= -Wall -Wextra -Werror -g -I $(INC_DIR)
+FLAGS			= -Wall -Wextra -Werror -g -I $(INC_DIR) -D CAN_PRINT=0
 
 FILES			= 	srcs/check_int.c \
 					srcs/ft_push.c \
@@ -46,7 +46,7 @@ NAME			= push_swap
 					cc ${FLAGS} -c $< -o ${<:.c=.o}
 				
 ${NAME}:		libft ${OBJS} includes/push_swap.h Makefile
-					cc $(FLAGS) $(OBJS) $(LIBFT) -o $@
+					cc $(FLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 					@echo "$(GREEN)All files compiled succesfully :D$(NC)"
 					@norminette $(INC_DIR)*.h | awk '$$NF!="OK!" {print "$(RED)" $$0 "$(NC)"}'
 					@norminette $(FILES) | awk '$$NF!="OK!" {print "$(RED)" $$0 "$(NC)"}'
