@@ -6,37 +6,37 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:50:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/27 18:17:27 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/27 21:20:11 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	print_list(t_int_list *lst)
-{
-	int	i;
-	int	*lst_a;
-	int	*lst_b;
-	int	len_a;
-	int	len_b;
+// void	print_list(t_int_list *lst)
+// {
+// 	int	i;
+// 	int	*lst_a;
+// 	int	*lst_b;
+// 	int	len_a;
+// 	int	len_b;
 
-	lst_a = lst->lst_a;
-	lst_b = lst->lst_b;
-	len_a = lst->len_a;
-	len_b = lst->len_b;
-	i = 0;
-	ft_printf("lst A\t\tlst B\n");
-	while (i < len_a || i < lst->len_b)
-	{
-		if (i < len_a)
-			ft_printf("%i : %i", i, *lst_a++);
-		ft_printf("\t\t\t");
-		if (i < len_b)
-			ft_printf("%i", *lst_b++);
-		ft_printf("\n");
-		i++;
-	}
-}
+// 	lst_a = lst->lst_a;
+// 	lst_b = lst->lst_b;
+// 	len_a = lst->len_a;
+// 	len_b = lst->len_b;
+// 	i = 0;
+// 	ft_printf("lst A\t\tlst B\n");
+// 	while (i < len_a || i < lst->len_b)
+// 	{
+// 		if (i < len_a)
+// 			ft_printf("%i : %i", i, *lst_a++);
+// 		ft_printf("\t\t\t");
+// 		if (i < len_b)
+// 			ft_printf("%i", *lst_b++);
+// 		ft_printf("\n");
+// 		i++;
+// 	}
+// }
 
 int	main(int argc, char *argv[])
 {
@@ -49,14 +49,12 @@ int	main(int argc, char *argv[])
 	lst_simple = NULL;
 	if (!lst)
 		return (kill_lst(lst, lst_simple), ft_printf("Error\n"));
-	ft_printf("lst initiated\n");
 	if (lst->len_a > 5)
 	{
 		lst_simple = init_list(argc, argv);
 		if (!lst_simple)
 			return (kill_lst(lst, lst_simple), ft_printf("Error\n"));
 		simple_lst(lst, lst_simple);
-		ft_printf("simple lst initiated\n");
 	}
 	if (is_stack_sorted(lst))
 		return (kill_lst(lst, lst_simple), 0);
@@ -64,10 +62,7 @@ int	main(int argc, char *argv[])
 		less_three_sort(lst);
 	if (lst->len_a <= 5 && !is_stack_sorted(lst))
 		less_five_sort(lst);
-	ft_printf("Starting big sort\n");
 	if (lst->len_a > 5)
 		big_sort(lst, lst_simple);
-	ft_printf("Big sort ended\n");
-	print_list(lst);
 	return (kill_lst(lst, lst_simple), 0);
 }
