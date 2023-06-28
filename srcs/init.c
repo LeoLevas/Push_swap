@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 13:29:21 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 14:58:46 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int	*get_list(t_int_list *lst, int *argc, char *argv[])
 		|| ft_atoi_long_long(argv[i - 1]) < -2147483648)
 			return (free(lst_a - (i - 1)), NULL);
 	}
-	lst->len_a = i;
-	lst->max_len = i;
+	lst->len_a = i - 1;
+	lst->max_len = i - 1;
 	if (is_duplicate(lst_a, i))
 		return (free(lst_a), lst_a = NULL, NULL);
 	return (lst_a);
@@ -86,10 +86,9 @@ int	*get_list_split(t_int_list *lst, int *argc, char **tab)
 	}
 	lst->len_a = i;
 	lst->max_len = i;
-	free_tab(tab);
 	if (is_duplicate(lst_a, i))
-		return (free(lst_a), lst_a = NULL, NULL);
-	return (lst_a);
+		return (free(lst_a), free_tab(tab), lst_a = NULL, NULL);
+	return (free_tab(tab), lst_a);
 }
 
 void	kill_lst(t_int_list *lst, t_int_list *lst_copy)
