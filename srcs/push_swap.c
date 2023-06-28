@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:50:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 08:38:49 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 09:06:42 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	print_list(t_int_list *lst)
 	len_a = lst->len_a;
 	len_b = lst->len_b;
 	i = 0;
-	ft_printf("\33[2K\rlst A\t\tlst B\n");
+	ft_printf("\nlst A\t\tlst B\n");
 	while (i < len_a || i < lst->len_b)
 	{
 		if (i < len_a)
@@ -49,6 +49,8 @@ int	main(int argc, char *argv[])
 	lst_simple = NULL;
 	if (!lst)
 		return (kill_lst(lst, lst_simple), ft_printf("Error\n"));
+	if (is_stack_sorted(lst))
+		return (kill_lst(lst, lst_simple), 0);
 	if (lst->len_a > 5)
 	{
 		lst_simple = init_list(argc, argv);
@@ -57,10 +59,8 @@ int	main(int argc, char *argv[])
 		simple_lst(lst, lst_simple);
 		big_sort(lst, lst_simple);
 	}
-	if (is_stack_sorted(lst))
-		return (kill_lst(lst, lst_simple), 0);
 	if (lst->len_a <= 5 && !is_stack_sorted(lst))
 		less_five_sort(lst);
-	//print_list(lst);
+	print_list(lst);
 	return (kill_lst(lst, lst_simple), 0);
 }

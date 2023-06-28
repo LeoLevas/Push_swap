@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 08:33:26 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 08:37:10 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 08:41:08 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	print_inst(t_int_list *lst)
 	usleep(20);
 }
 
-void    init_inst_count(t_int_list *lst)
+void	init_inst_count(t_int_list *lst)
 {
-    lst->pa = 0;
+	lst->pa = 0;
 	lst->pb = 0;
 	lst->ra = 0;
 	lst->rb = 0;
@@ -33,5 +33,5 @@ void    init_inst_count(t_int_list *lst)
 	lst->rrr = 0;
 	lst->sa = 0;
 	lst->sb = 0;
-	lst->ss = 0;    
+	lst->ss = 0;
 }

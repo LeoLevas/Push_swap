@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:51:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 08:37:18 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 08:42:28 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_int_list
 
 void				print_list(t_int_list *lst);
 void				print_inst(t_int_list *lst);
-void			    init_inst_count(t_int_list *lst);
+void				init_inst_count(t_int_list *lst);
 
 /* push_swap_utils.c */
 
