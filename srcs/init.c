@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 14:58:46 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:55:59 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ int	*get_list(t_int_list *lst, int *argc, char *argv[])
 	i = 1;
 	while (i - 1 < *argc && argv[i])
 	{
-		if (!is_char_only_digits(argv[i]) || is_duplicate(lst_a, i))
-			return (free(lst_a), lst_a = NULL, NULL);
+		if (ft_atoi_long_long(argv[i]) > 2147483647 \
+		|| ft_atoi_long_long(argv[i]) < -2147483648 \
+		|| !is_char_only_digits(argv[i]))
+			return (free(lst_a), NULL);
 		lst_a[i - 1] = ft_atoi(argv[i]);
-		if (ft_atoi_long_long(argv[i++]) > 2147483647 \
-		|| ft_atoi_long_long(argv[i - 1]) < -2147483648)
-			return (free(lst_a - (i - 1)), NULL);
+		i++;
 	}
 	lst->len_a = i - 1;
 	lst->max_len = i - 1;
@@ -77,12 +77,12 @@ int	*get_list_split(t_int_list *lst, int *argc, char **tab)
 	i = 0;
 	while (i < *argc && tab[i])
 	{
-		if (!is_char_only_digits(tab[i]))
-			return (free(lst_a), lst_a = NULL, NULL);
+		if (ft_atoi_long_long(tab[i]) > 2147483647 \
+		|| ft_atoi_long_long(tab[i]) < -2147483648 \
+		|| !is_char_only_digits(tab[i]))
+			return (free(lst_a), free_tab(tab), lst_a = NULL, NULL);
 		lst_a[i] = ft_atoi(tab[i]);
-		if (ft_atoi_long_long(tab[i++]) > 2147483647 \
-		|| ft_atoi_long_long(tab[i - 1]) < -2147483648)
-			return (free(lst_a), lst_a = NULL, NULL);
+		i++;
 	}
 	lst->len_a = i;
 	lst->max_len = i;
