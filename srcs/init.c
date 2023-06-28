@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 08:37:40 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 09:16:01 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ int	*get_list_split(t_int_list *lst, int *argc, char **tab)
 		return (NULL);
 	set_zero(lst_a, *argc);
 	i = 0;
-	while (i < *argc && tab[i] && is_char_only_digits(tab[i]))
+	while (i < *argc && tab[i + 1] && is_char_only_digits(tab[i + 1]))
 	{
-		*lst_a++ = ft_atoi(tab[i++]);
+		*lst_a++ = ft_atoi(tab[i++ + 1]);
 		if (ft_atoi_long_long(tab[i - 1]) > 2147483647 \
 		|| ft_atoi_long_long(tab[i - 1]) < -2147483648)
 			return (free(lst_a - (i - 1)), NULL);
@@ -85,7 +85,7 @@ int	*get_list_split(t_int_list *lst, int *argc, char **tab)
 	lst->len_a = i;
 	lst->max_len = i;
 	free_tab(tab);
-	if (is_duplicate(lst_a, i) || !is_char_only_digits(tab[i]))
+	if (is_duplicate(lst_a, i))
 		return (free(lst_a), lst_a = NULL, NULL);
 	return (lst_a);
 }
