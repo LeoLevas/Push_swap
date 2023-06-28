@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:50:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 15:05:46 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 16:10:40 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main(int argc, char *argv[])
 		simple_lst(lst, lst_simple);
 		big_sort(lst, lst_simple);
 	}
-	while (lst->max_len <= 5 && !is_stack_sorted(lst))
+	if (lst->max_len <= 5 && !is_stack_sorted(lst))
 		less_five_sort(lst);
 	if (!CAN_PRINT)
 		print_list(lst);
