@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:50:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 08:18:39 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 08:38:49 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,6 @@ void	print_list(t_int_list *lst)
 	}
 }
 
-void	print_inst(t_int_list *lst)
-{
-	ft_printf("\33[2K\rpa : %d | pb : %d | ra : %d | rb : %d | rr : %d \
-| rra : %d | rrb : %d | rrr : %d | sa : %d | sb : %d | ss : %d",
-		lst->pa, lst->pb, lst->ra, lst->rb, lst->rr, lst->rra, lst->rrb,
-		lst->rrr, lst->sa, lst->sb, lst->ss);
-	usleep(20);
-}
-
 int	main(int argc, char *argv[])
 {
 	t_int_list	*lst;
@@ -64,15 +55,12 @@ int	main(int argc, char *argv[])
 		if (!lst_simple)
 			return (kill_lst(lst, lst_simple), ft_printf("Error\n"));
 		simple_lst(lst, lst_simple);
+		big_sort(lst, lst_simple);
 	}
 	if (is_stack_sorted(lst))
 		return (kill_lst(lst, lst_simple), 0);
-	if (lst->len_a <= 3 && !is_stack_sorted(lst))
-		less_three_sort(lst);
 	if (lst->len_a <= 5 && !is_stack_sorted(lst))
 		less_five_sort(lst);
-	if (lst->len_a > 5)
-		big_sort(lst, lst_simple);
-	print_list(lst);
+	//print_list(lst);
 	return (kill_lst(lst, lst_simple), 0);
 }
