@@ -6,11 +6,11 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:45:36 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/27 21:30:30 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 23:33:26 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 int	get_highest_elem(int *lst, int len)
 {

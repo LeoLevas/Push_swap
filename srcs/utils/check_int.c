@@ -6,11 +6,11 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:49:55 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/25 21:09:33 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 23:33:26 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 long long	ft_atoi_long_long(const char *str)
 {

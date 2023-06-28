@@ -6,11 +6,11 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:10:31 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 16:19:01 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 23:33:26 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	big_sort(t_int_list *lst, t_int_list *lst_simple)
 {

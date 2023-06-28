@@ -6,11 +6,11 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 09:51:28 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/26 12:07:48 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 23:33:25 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	swap(int *lst)
 {

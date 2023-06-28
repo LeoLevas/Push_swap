@@ -6,11 +6,11 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 09:50:25 by llevasse          #+#    #+#             */
-/*   Updated: 2023/01/25 16:38:03 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 23:33:25 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	rotate(int *lst, int len)
 {

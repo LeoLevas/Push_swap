@@ -6,11 +6,11 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:39:12 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/27 22:37:24 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 23:33:24 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	ft_rra(t_int_list *lst, t_int_list *lst_simple)
 {

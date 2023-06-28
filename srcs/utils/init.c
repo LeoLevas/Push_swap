@@ -6,11 +6,11 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 16:07:31 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 23:33:27 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 t_int_list	*init_list(int argc, char *argv[])
 {

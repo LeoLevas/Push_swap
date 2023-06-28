@@ -6,11 +6,11 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 13:46:02 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/27 22:36:11 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 23:33:24 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	ft_pa(t_int_list *lst, t_int_list *lst_sim)
 {

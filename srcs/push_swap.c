@@ -6,11 +6,11 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:50:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 16:10:40 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 23:33:24 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	print_list(t_int_list *lst)
 {
