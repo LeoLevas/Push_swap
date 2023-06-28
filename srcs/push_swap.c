@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:50:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 10:17:10 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 13:03:27 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,15 @@ int	main(int argc, char *argv[])
 
 	if (argc == 1)
 		return (0);
-	lst = init_list(argc, argv);
+	lst = init_list(&argc, argv);
 	lst_simple = NULL;
 	if (!lst)
 		return (kill_lst(lst, lst_simple), ft_printf("Error\n"));
-	if (is_stack_sorted(lst))
+	if (is_stack_sorted(lst) || argc == 2)
 		return (kill_lst(lst, lst_simple), 0);
 	if (lst->len_a > 5)
 	{
-		lst_simple = init_list(argc, argv);
+		lst_simple = init_list(&argc, argv);
 		if (!lst_simple)
 			return (kill_lst(lst, lst_simple), ft_printf("Error\n"));
 		simple_lst(lst, lst_simple);
@@ -61,6 +61,7 @@ int	main(int argc, char *argv[])
 	}
 	if (lst->len_a <= 5 && !is_stack_sorted(lst))
 		less_five_sort(lst);
-	print_list(lst);
+	if (CAN_PRINT)
+		print_list(lst);
 	return (kill_lst(lst, lst_simple), 0);
 }

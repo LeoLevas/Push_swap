@@ -6,11 +6,11 @@
 #    By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/14 17:00:51 by llevasse          #+#    #+#              #
-#    Updated: 2023/06/28 08:36:13 by llevasse         ###   ########.fr        #
+#    Updated: 2023/06/28 13:01:13 by llevasse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FLAGS			= -Wall -Wextra -Werror -g -I $(INC_DIR) -D CAN_PRINT=0
+FLAGS			= -Wall -Wextra -Werror -g -I $(INC_DIR) -D CAN_PRINT=1
 
 FILES			= 	srcs/check_int.c \
 					srcs/ft_push.c \

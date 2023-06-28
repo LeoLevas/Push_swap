@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:30:03 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 12:41:46 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 13:02:59 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	is_stack_sorted(t_int_list *lst)
 		lst_a++;
 		i++;
 	}
-	print_inst(lst);
 	if ((*lst_a < *(lst_a - 1)))
 		return (0);
 	return (1);

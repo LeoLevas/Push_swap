@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:51:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 08:42:28 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 12:55:38 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void				big_sort(t_int_list *lst, t_int_list *lst_simple);
 
 /* init.c */
 
-t_int_list			*init_list(int argc, char *argv[]);
+t_int_list			*init_list(int *argc, char *argv[]);
 int					*get_list_split(t_int_list *lst, int *argc, char **tab);
 int					*get_list(t_int_list *lst, int *argc, char *argv[]);
 void				kill_lst(t_int_list *lst, t_int_list *lst_copy);

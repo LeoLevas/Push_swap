@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:10:31 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 08:34:45 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 13:14:14 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,17 @@ void	big_sort(t_int_list *lst, t_int_list *lst_simple)
 		while (j < lst->max_len)
 		{
 			if (((*lst_simple->lst_a >> i) & 1) == 1)
+{		print_list(lst);
 				ft_ra(lst, lst_simple);
-			else
-				ft_pb(lst, lst_simple);
-			j++;
+}			else
+{				ft_pb(lst, lst_simple);
+		print_list(lst);
+}			j++;
 		}
 		i++;
 		while (lst->len_b != 0)
-			ft_pa(lst, lst_simple);
+{			ft_pa(lst, lst_simple);
+		print_list(lst);
+}
 	}
 }
