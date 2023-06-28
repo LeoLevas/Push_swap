@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 09:16:01 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 10:30:19 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,16 @@ int	*get_list(t_int_list *lst, int *argc, char *argv[])
 	if (!lst_a)
 		return (NULL);
 	set_zero(lst_a, *argc);
-	i = 0;
-	while (i < *argc && argv[i + 1] && is_char_only_digits(argv[i + 1]))
+	i = 1;
+	while (i - 1 < *argc && argv[i] && is_char_only_digits(argv[i]))
 	{
-		*lst_a++ = ft_atoi(argv[(i++) + 1]);
-		if (ft_atoi_long_long(argv[i]) > 2147483647 \
-		|| ft_atoi_long_long(argv[i]) < -2147483648)
-			return (free(lst_a - (i)), NULL);
+		if (!is_char_only_digits(argv[i]) || is_duplicate(lst_a, i))
+			return (free(lst_a), lst_a = NULL, NULL);
+		lst_a[i - 1] = ft_atoi(argv[i]);
+		if (ft_atoi_long_long(argv[i++]) > 2147483647 \
+		|| ft_atoi_long_long(argv[i - 1]) < -2147483648)
+			return (free(lst_a - (i - 1)), NULL);
 	}
-	lst_a -= i;
 	lst->len_a = i;
 	lst->max_len = i;
 	if (is_duplicate(lst_a, i))
@@ -74,14 +75,15 @@ int	*get_list_split(t_int_list *lst, int *argc, char **tab)
 		return (NULL);
 	set_zero(lst_a, *argc);
 	i = 0;
-	while (i < *argc && tab[i + 1] && is_char_only_digits(tab[i + 1]))
+	while (i < *argc && tab[i])
 	{
-		*lst_a++ = ft_atoi(tab[i++ + 1]);
-		if (ft_atoi_long_long(tab[i - 1]) > 2147483647 \
+		if (!is_char_only_digits(tab[i]))
+			return (free(lst_a - i), lst_a = NULL, NULL);
+		lst_a[i] = ft_atoi(tab[i]);
+		if (ft_atoi_long_long(tab[i++]) > 2147483647 \
 		|| ft_atoi_long_long(tab[i - 1]) < -2147483648)
-			return (free(lst_a - (i - 1)), NULL);
+			return (free(lst_a), lst_a = NULL, NULL);
 	}
-	lst_a -= i;
 	lst->len_a = i;
 	lst->max_len = i;
 	free_tab(tab);

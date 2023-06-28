@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:30:03 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 08:38:29 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 10:14:08 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	is_char_only_digits(char *str)
 	int	was_digit;
 
 	if (!str)
-		return (1);
+		return (0);
 	was_digit = 0;
 	while (ft_isdigit(*str) || *str == ' ' || *str == '-' || *str == '+')
 	{
