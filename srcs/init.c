@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:15:20 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 15:55:59 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 16:07:31 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ t_int_list	*init_list(int argc, char *argv[])
 		free(lst->lst_a);
 		return (free(lst), NULL);
 	}
-	set_zero(lst->lst_b, argc - 1);
 	lst->len_b = 0;
 	init_inst_count(lst);
 	return (lst);
@@ -44,7 +43,6 @@ int	*get_list(t_int_list *lst, int *argc, char *argv[])
 	lst_a = malloc((*argc) * sizeof(int));
 	if (!lst_a)
 		return (NULL);
-	set_zero(lst_a, *argc);
 	i = 1;
 	while (i - 1 < *argc && argv[i])
 	{
@@ -57,7 +55,7 @@ int	*get_list(t_int_list *lst, int *argc, char *argv[])
 	}
 	lst->len_a = i - 1;
 	lst->max_len = i - 1;
-	if (is_duplicate(lst_a, i))
+	if (is_duplicate(lst_a, i - 1))
 		return (free(lst_a), lst_a = NULL, NULL);
 	return (lst_a);
 }
@@ -73,7 +71,6 @@ int	*get_list_split(t_int_list *lst, int *argc, char **tab)
 	lst_a = malloc(*argc * sizeof(int));
 	if (!lst_a)
 		return (NULL);
-	set_zero(lst_a, *argc);
 	i = 0;
 	while (i < *argc && tab[i])
 	{

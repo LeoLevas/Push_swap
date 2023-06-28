@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:30:03 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 13:02:59 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 16:02:13 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,6 @@ int	is_duplicate(int *lst, int len)
 		i++;
 	}
 	return (0);
-}
-
-void	set_zero(int *lst, int len)
-{
-	int	i;
-
-	i = 0;
-	while (i < len)
-	{
-		*lst++ = 0;
-		i++;
-	}
 }
 
 int	is_char_only_digits(char *str)
