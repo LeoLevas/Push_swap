@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:10:31 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 14:59:29 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:05:15 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,34 +33,32 @@ void	less_three_sort(t_int_list *lst)
 	if (*lst->lst_a < *(lst->lst_a + 1) && *lst->lst_a > *(lst->lst_a + 2) \
 		&& *(lst->lst_a + 1) > *(lst->lst_a + 2))
 		return (ft_rra(lst, NULL));
-	return ;
 }
 
 void	less_five_sort(t_int_list *lst)
 {
 	int	pos;
-	while (!is_stack_sorted(lst))
+
+	while (lst->len_a > 3)
+		ft_pb(lst, NULL);
+	less_three_sort(lst);
+	while (lst->len_b > 0)
 	{
-		while (lst->len_a > 3)
-			ft_pb(lst, NULL);
-		less_three_sort(lst);
-		while (lst->len_b > 0)
+		pos = get_elem_position_in_sort(lst, *lst->lst_b);
+		if (pos <= (lst->len_a / 2) && pos != lst->len_a)
 		{
-			pos = get_elem_position_in_sort(lst, *lst->lst_b);
-			if (pos <= (lst->len_a / 2) && pos != lst->len_a)
-			{
-				while (get_elem_position_in_sort(lst, *lst->lst_b) != 0)
-					ft_ra(lst, NULL);
-			}
-			if (pos > (lst->len_a / 2) && pos != lst->len_a)
-			{
-				while (get_elem_position_in_sort(lst, *lst->lst_b) != 0)
-					ft_rra(lst, NULL);
-			}
-			ft_pa(lst, NULL);
-			if (*lst->lst_a > *(lst->lst_a + lst->len_a) || pos == lst->len_a - 1)
+			while (get_elem_position_in_sort(lst, *lst->lst_b) != 0)
+				ft_ra(lst, NULL);
+		}
+		if (pos > (lst->len_a / 2) && pos != lst->len_a)
+		{
+			while (get_elem_position_in_sort(lst, *lst->lst_b) != 0)
 				ft_rra(lst, NULL);
 		}
+		ft_pa(lst, NULL);
+		if (*lst->lst_a > *(lst->lst_a + lst->len_a) \
+		|| pos == lst->len_a - 1)
+			ft_rra(lst, NULL);
 	}
 }
 
