@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 18:08:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/27 21:21:57 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 08:26:55 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	simple_lst(t_int_list *lst, t_int_list *lst_simple)
 	next_lowest = lowest;
 	i = 0;
 	pos = get_int_pos_in_list(lst_a, lst->max_len, lowest);
+	*(lst_simple->lst_a + pos) = i++;
 	while (can_next_lowest(lst_a, lst_simple->len_a, lowest, &next_lowest))
 	{
 		lowest = next_lowest;
