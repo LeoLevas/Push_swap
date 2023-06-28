@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:51:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 13:29:04 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 16:20:45 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void				kill_lst(t_int_list *lst, t_int_list *lst_copy);
 /* init_simple */
 
 void				simple_lst(t_int_list *lst, t_int_list *lst_simple);
-int					get_int_pos_in_list(int *lst, int len, int nbr);
+int					get_index(int *lst, int len, int nbr);
 
 /* check_int.c */
 
