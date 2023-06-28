@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:30:03 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 10:14:08 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 12:41:46 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	is_duplicate(int *lst, int len)
 	int	j;
 
 	i = 0;
-	while (lst[i] && i < len)
+	while (i < len)
 	{
 		j = 0;
 		while (j < i)
