@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:51:11 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 16:20:45 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/28 23:26:30 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,5 @@ int					get_index(int *lst, int len, int nbr);
 
 long long			ft_atoi_long_long(const char *str);
 int					ft_isspace(char c);
-
-/* significant_digit.c */
-
-int					get_lsd(int *lst, int len, int digit);
-int					get_msd(int *lst, int len, int digit);
 
 #endif

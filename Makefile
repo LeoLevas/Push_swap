@@ -6,31 +6,30 @@
 #    By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/14 17:00:51 by llevasse          #+#    #+#              #
-#    Updated: 2023/06/28 16:18:33 by llevasse         ###   ########.fr        #
+#    Updated: 2023/06/28 23:31:44 by llevasse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS			= -Wall -Wextra -Werror -g -I $(INC_DIR) -D CAN_PRINT=1
 
-FILES			= 	srcs/check_int.c \
-					srcs/ft_push.c \
-					srcs/ft_reverse_rotate.c \
-					srcs/ft_rotate.c \
-					srcs/ft_swap.c \
-					srcs/get_elem.c \
-					srcs/init.c \
-					srcs/push.c \
-					srcs/push_swap.c \
+FILES			= 	srcs/push_swap.c \
 					srcs/push_swap_utils.c \
-					srcs/reverse_rotate.c \
-					srcs/rotate.c \
-					srcs/radix.c \
-					srcs/little_sort.c \
-					srcs/medium_sort.c \
-					srcs/swap.c \
-					srcs/init_simple.c \
-					srcs/significant_digit.c \
-					srcs/print_inst.c
+					srcs/instruction/ft_push.c \
+					srcs/instruction/push.c \
+					srcs/instruction/ft_rotate.c \
+					srcs/instruction/rotate.c \
+					srcs/instruction/ft_reverse_rotate.c \
+					srcs/instruction/reverse_rotate.c \
+					srcs/instruction/ft_swap.c \
+					srcs/instruction/swap.c \
+					srcs/sort/little_sort.c \
+					srcs/sort/medium_sort.c \
+					srcs/sort/radix.c \
+					srcs/utils/get_elem.c \
+					srcs/utils/init.c \
+					srcs/utils/init_simple.c \
+					srcs/utils/check_int.c \
+					srcs/utils/print_inst.c
 
 
 INC_DIR			= includes/
