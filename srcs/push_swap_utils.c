@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:30:03 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 23:33:23 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/29 09:33:10 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,22 +69,5 @@ int	is_char_only_digits(char *str)
 		return (0);
 	if (was_digit)
 		return (1);
-	return (0);
-}
-
-int	get_range(int min, int max)
-{
-	int	temp;
-
-	if (min > max)
-	{
-		temp = max;
-		max = min;
-		min = temp;
-	}
-	if (min >= 0 && max > 0)
-		return (max - min);
-	if (min <= 0)
-		return (max + (min * -1));
 	return (0);
 }

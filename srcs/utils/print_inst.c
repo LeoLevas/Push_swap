@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 08:33:26 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/28 23:33:27 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/06/29 09:43:32 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	print_inst(t_int_list *lst)
 | rra : %d | rrb : %d | rrr : %d | sa : %d | sb : %d | ss : %d",
 		lst->pa, lst->pb, lst->ra, lst->rb, lst->rr, lst->rra, lst->rrb,
 		lst->rrr, lst->sa, lst->sb, lst->ss);
-	usleep(20);
 }
 
 void	init_inst_count(t_int_list *lst)
@@ -34,4 +33,30 @@ void	init_inst_count(t_int_list *lst)
 	lst->sa = 0;
 	lst->sb = 0;
 	lst->ss = 0;
+}
+
+void	print_list(t_int_list *lst)
+{
+	int	i;
+	int	*lst_a;
+	int	*lst_b;
+	int	len_a;
+	int	len_b;
+
+	lst_a = lst->lst_a;
+	lst_b = lst->lst_b;
+	len_a = lst->len_a;
+	len_b = lst->len_b;
+	i = 0;
+	ft_printf("\nlst A\t\tlst B\n");
+	while (i < len_a || i < lst->len_b)
+	{
+		if (i < len_a)
+			ft_printf("%i : %i", i, *lst_a++);
+		ft_printf("\t\t\t");
+		if (i < len_b)
+			ft_printf("%i", *lst_b++);
+		ft_printf("\n");
+		i++;
+	}
 }
