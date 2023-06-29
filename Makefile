@@ -6,14 +6,13 @@
 #    By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/14 17:00:51 by llevasse          #+#    #+#              #
-#    Updated: 2023/06/28 23:31:44 by llevasse         ###   ########.fr        #
+#    Updated: 2023/06/29 09:48:21 by llevasse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS			= -Wall -Wextra -Werror -g -I $(INC_DIR) -D CAN_PRINT=1
 
 FILES			= 	srcs/push_swap.c \
-					srcs/push_swap_utils.c \
 					srcs/instruction/ft_push.c \
 					srcs/instruction/push.c \
 					srcs/instruction/ft_rotate.c \
@@ -25,6 +24,7 @@ FILES			= 	srcs/push_swap.c \
 					srcs/sort/little_sort.c \
 					srcs/sort/medium_sort.c \
 					srcs/sort/radix.c \
+					srcs/utils/push_swap_utils.c \
 					srcs/utils/get_elem.c \
 					srcs/utils/init.c \
 					srcs/utils/init_simple.c \
