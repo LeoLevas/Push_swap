@@ -6,7 +6,7 @@
 /*   By: llevasse <llevasse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:50:17 by llevasse          #+#    #+#             */
-/*   Updated: 2023/06/29 16:24:29 by llevasse         ###   ########.fr       */
+/*   Updated: 2023/07/02 12:14:56 by llevasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	parse(t_int_list **lst, t_int_list **lst_simple, int argc, char **argv)
 	}
 	if ((*lst)->len_a > 5)
 	{
-		//*lst_simple = init_list(argc, argv);
+		*lst_simple = init_list(argc, argv);
 		if (!*lst_simple)
 		{
 			kill_lst(*lst, *lst_simple);
